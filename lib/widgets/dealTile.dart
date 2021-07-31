@@ -11,22 +11,35 @@ class DealTile extends StatefulWidget {
 }
 
 class _DealTileState extends State<DealTile> {
+
+
   @override
   Widget build(BuildContext context) {
-    double percentDiscount = double.parse(widget.gameDeal.savings).roundToDouble();
 
+    TextStyle detailsStyle =
+    TextStyle(fontSize: 14.5, fontWeight: FontWeight.w600, color: Theme.of(context).accentColor);
+
+    String percentDiscountFormatted = double.parse(widget.gameDeal.savings)
+        .roundToDouble()
+        .toStringAsFixed(0)
+        .toString()+'%';
 
     return ListTile(
       onTap: () {},
       contentPadding: EdgeInsets.fromLTRB(16, 10, 16, 10),
+      leading: Visibility(
+        visible: percentDiscountFormatted != '0%',
+        child: CircleAvatar(
+            radius: 25,
+            backgroundColor: Theme.of(context).accentColor.withOpacity(0.4),
+            child: Text(percentDiscountFormatted,textAlign: TextAlign.center,
+              style: detailsStyle,)),
+      ),
       title: Text(widget.gameDeal.title),
       trailing: Text(
-        percentDiscount.toString() +
-            '%\n' +
-            'Value: ' +
-            widget.gameDeal.salePrice.toString(),
+        'Value: ' + widget.gameDeal.salePrice.toString(),
         textAlign: TextAlign.center,
-        style: TextStyle(color: Theme.of(context).accentColor,fontWeight: FontWeight.w600),
+        style: detailsStyle,
       ),
     );
   }

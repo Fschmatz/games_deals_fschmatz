@@ -1,9 +1,6 @@
-import 'dart:convert';
-import 'package:games_deals_fschmatz/widgets/dealTile.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:games_deals_fschmatz/classes/gameDeal.dart';
-import 'configs/settingsPage.dart';
+import 'package:games_deals_fschmatz/widgets/dealsList.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -11,79 +8,88 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  bool loading = true;
-  List<GameDeal> gamesDealsList = [];
-  String urlJson = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15';
+  // DOCS -> https://apidocs.cheapshark.com/
+  // Steam = 1 , Epic = 24, GOG = 6, Origin = 7
 
-  @override
-  void initState() {
-    loadJsonData();
-    super.initState();
-  }
-
-  Future<void> loadJsonData() async {
-    final response = await http.get(Uri.parse(urlJson));
-    if (response.statusCode == 200) {
-      Iterable l = json.decode(response.body);
-      List<GameDeal> listJson = List<GameDeal>.from(l.map((model)=> GameDeal.fromJson(model)));
-
-      print('x[0] -> ' + listJson[0].toString());
-      print('length -> ' + listJson.length.toString());
-
-        setState(() {
-          loading = false;
-          gamesDealsList = listJson;
-        });
-      }
-
-  }
-
-
+  //start with Steam
+  int _currentIndex = 0;
+  List<Widget> _storesList = [
+    DealsList(
+      key: UniqueKey(),
+      currentStore: 1,
+    ),
+    DealsList(
+      key: UniqueKey(),
+      currentStore: 24,
+    ),
+    DealsList(
+      key: UniqueKey(),
+      currentStore: 6,
+    ),
+    DealsList(
+      key: UniqueKey(),
+      currentStore: 7,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
+    TextStyle styleFontNavBar = TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.w600,
+        color: Theme.of(context).textTheme.headline6!.color!.withOpacity(0.8));
+
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          title: Text('Games Deals'),
-          actions: [
-            IconButton(
-                icon: Icon(
-                  Icons.settings_outlined,
-                  color: Theme.of(context)
-                      .textTheme
-                      .headline6!
-                      .color!
-                      .withOpacity(0.7),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => SettingsPage(),
-                        fullscreenDialog: true,
-                      ));
-                }),
-          ],
+      body: SafeArea(child: _storesList[_currentIndex]),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
         ),
-        body: loading
-            ? Center(
-                child: CircularProgressIndicator(
-                  color: Theme.of(context).accentColor,
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12),
+            child: GNav(
+              rippleColor: Theme.of(context).accentColor.withOpacity(0.4),
+              hoverColor: Theme.of(context).accentColor.withOpacity(0.4),
+              gap: 0,
+              activeColor: Theme.of(context).accentColor,
+              tabBorderRadius: 15,
+              iconSize: 1,
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              duration: Duration(milliseconds: 500),
+              tabBackgroundColor:
+                  Theme.of(context).accentColor.withOpacity(0.3),
+              backgroundColor:
+                  Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
+              tabs: [
+                GButton(
+                  //icon: Icons.storefront_outlined,
+                  icon: Icons.circle,
+                  leading: Text('   Steam', style: styleFontNavBar),
                 ),
-              )
-            : ListView(physics: AlwaysScrollableScrollPhysics(), children: [
-                ListView.separated(
-                    physics: NeverScrollableScrollPhysics(),
-                    separatorBuilder: (context, index) => const Divider(height: 0,),
-                    shrinkWrap: true,
-                    itemCount: gamesDealsList.length,
-                    itemBuilder: (context, index) {
-                      return DealTile(gameDeal: gamesDealsList[index]);
-                    }),
-                const SizedBox(
-                  height: 50,
-                )
-              ]));
+                GButton(
+                  icon: Icons.circle,
+                  leading: Text('   Epic', style: styleFontNavBar),
+                ),
+                GButton(
+                  icon: Icons.circle,
+                  leading: Text('   GOG', style: styleFontNavBar),
+                ),
+                GButton(
+                  icon: Icons.circle,
+                  leading: Text('   Origin', style: styleFontNavBar),
+                ),
+              ],
+              selectedIndex: _currentIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _currentIndex = index;
+                });
+              },
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
