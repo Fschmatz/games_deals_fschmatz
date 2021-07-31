@@ -26,11 +26,11 @@ class _DealsListState extends State<DealsList> {
   @override
   void initState() {
     storeID = widget.currentStore;
-    urlJson = 'https://www.cheapshark.com/api/1.0/deals?storeID=$storeID&upperPrice=15&onSale=1';
+    urlJson = 'https://www.cheapshark.com/api/1.0/deals?storeID=$storeID&upperPrice=10';
     loadJsonData();
     super.initState();
   }
-
+  //https://www.cheapshark.com/api/1.0/deals?
 
   Future<void> loadJsonData() async {
     final response = await http.get(Uri.parse(urlJson));
@@ -38,10 +38,6 @@ class _DealsListState extends State<DealsList> {
       Iterable l = json.decode(response.body);
       List<GameDeal> listJson =
           List<GameDeal>.from(l.map((model) => GameDeal.fromJson(model)));
-
-      print('x[0] -> ' + listJson[0].toString());
-      print('length -> ' + listJson.length.toString());
-
       setState(() {
         loading = false;
         gamesDealsList = listJson;

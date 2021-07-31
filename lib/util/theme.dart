@@ -34,7 +34,7 @@ ThemeData light = ThemeData(
             borderRadius: BorderRadius.circular(15.0))
     ),
     accentTextTheme: TextTheme(
-      headline1: TextStyle(color: Colors.purple),
+      headline1: TextStyle(color:  Color(0xFFd373f0)),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       showSelectedLabels: false,
@@ -78,7 +78,7 @@ ThemeData dark = ThemeData(
             borderRadius: BorderRadius.circular(15.0))
     ),
     accentTextTheme: TextTheme(
-      headline1: TextStyle(color:  Color(0xFFB17FBF)),
+      headline1: TextStyle(color:  Color(0xFFc9a5d4)),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       showSelectedLabels: false,

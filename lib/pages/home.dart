@@ -9,18 +9,18 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   // DOCS -> https://apidocs.cheapshark.com/
-  // Steam = 1 , Epic = 24, GOG = 6, Origin = 7
+  // Steam = 1 , Epic = 25, GOG = 6, Origin = 7
 
-  //start with Steam
+  //start with Epic
   int _currentIndex = 0;
   List<Widget> _storesList = [
     DealsList(
       key: UniqueKey(),
-      currentStore: 1,
+      currentStore: 25,
     ),
     DealsList(
       key: UniqueKey(),
-      currentStore: 24,
+      currentStore: 1,
     ),
     DealsList(
       key: UniqueKey(),
@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     TextStyle styleFontNavBar = TextStyle(
-        fontSize: 15,
+        fontSize: 14.5,
         fontWeight: FontWeight.w600,
         color: Theme.of(context).textTheme.headline6!.color!.withOpacity(0.8));
 
@@ -47,14 +47,14 @@ class _HomeState extends State<Home> {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 12),
             child: GNav(
               rippleColor: Theme.of(context).accentColor.withOpacity(0.4),
               hoverColor: Theme.of(context).accentColor.withOpacity(0.4),
               gap: 0,
               activeColor: Theme.of(context).accentColor,
               tabBorderRadius: 15,
-              iconSize: 1,
+              iconSize: 15,
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
               duration: Duration(milliseconds: 500),
               tabBackgroundColor:
@@ -65,11 +65,11 @@ class _HomeState extends State<Home> {
                 GButton(
                   //icon: Icons.storefront_outlined,
                   icon: Icons.circle,
-                  leading: Text('   Steam', style: styleFontNavBar),
+                  leading: Text('   Epic', style: styleFontNavBar),
                 ),
                 GButton(
                   icon: Icons.circle,
-                  leading: Text('   Epic', style: styleFontNavBar),
+                  leading: Text('   Steam', style: styleFontNavBar),
                 ),
                 GButton(
                   icon: Icons.circle,
