@@ -14,7 +14,7 @@ class _DealTileState extends State<DealTile> {
   @override
   Widget build(BuildContext context) {
     double percentDiscount = double.parse(widget.gameDeal.savings).roundToDouble();
-    
+
 
     return ListTile(
       onTap: () {},

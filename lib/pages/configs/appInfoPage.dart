@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 class AppInfoPage extends StatelessWidget {
 
   _launchGithub()  {
-    const url = 'https://github.com/Fschmatz/date_countdown_fschmatz';
+    const url = 'https://github.com/Fschmatz/games_deals_fschmatz';
     launch(url);
   }
 
@@ -23,7 +23,7 @@ class AppInfoPage extends StatelessWidget {
           const SizedBox(height: 20),
           CircleAvatar(
             radius: 55,
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.deepOrangeAccent,
             child: CircleAvatar(
               radius: 50,
               backgroundImage: AssetImage('assets/avatar.jpg'),
@@ -81,7 +81,7 @@ class AppInfoPage extends StatelessWidget {
                     color: themeColorText)),
           ),
           ListTile(
-            //onTap: () {_launchGithub();},
+            onTap: () {_launchGithub();},
             leading: Icon(Icons.open_in_new_outlined),
             title: Text("View on GitHub",
                 style: TextStyle(
@@ -102,7 +102,7 @@ class AppInfoPage extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.messenger_outline),
             title: Text(
-              " ??? ",
+              "Man’s mind, once stretched by a new idea, never regains its original dimensions.",
               style: TextStyle(fontSize: 16),
             ),
           ),
