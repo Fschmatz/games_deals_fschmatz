@@ -5,14 +5,16 @@ class GameDeal {
   final String internalName;
   final String storeID;
   final String salePrice;
-  final String savings;
+  final String savings;//dealID
+  final String dealID;
 
   GameDeal(
       {required this.title,
       required this.internalName,
       required this.storeID,
       required this.salePrice,
-      required this.savings});
+      required this.savings,
+      required this.dealID});
 
   factory GameDeal.fromJson(Map<String, dynamic> json) {
     final value = DynamicValue(json);
@@ -21,6 +23,7 @@ class GameDeal {
       internalName: value["internalName"].toString(),
       title: value["title"].toString(),
       storeID: value["storeID"].toString(),
+      dealID: value["dealID"].toString(),
       salePrice: value["salePrice"].toString(),
       savings: value["savings"].toString(),
     );

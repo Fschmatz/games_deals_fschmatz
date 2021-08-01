@@ -47,23 +47,22 @@ class _HomeState extends State<Home> {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 8),
             child: GNav(
               rippleColor: Theme.of(context).accentColor.withOpacity(0.4),
               hoverColor: Theme.of(context).accentColor.withOpacity(0.4),
               gap: 0,
               activeColor: Theme.of(context).accentColor,
-              tabBorderRadius: 15,
+              tabBorderRadius: 18,
               iconSize: 15,
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
               duration: Duration(milliseconds: 500),
               tabBackgroundColor:
-                  Theme.of(context).accentColor.withOpacity(0.3),
+                  Theme.of(context).accentTextTheme.headline2!.color!.withOpacity(0.6),
               backgroundColor:
                   Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
               tabs: [
                 GButton(
-                  //icon: Icons.storefront_outlined,
                   icon: Icons.circle,
                   leading: Text('   Epic', style: styleFontNavBar),
                 ),

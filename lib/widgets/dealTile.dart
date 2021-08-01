@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:games_deals_fschmatz/classes/gameDeal.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DealTile extends StatefulWidget {
   GameDeal gameDeal;
@@ -12,6 +13,14 @@ class DealTile extends StatefulWidget {
 }
 
 class _DealTileState extends State<DealTile> {
+
+  String urlOpenLinks = 'https://www.cheapshark.com/redirect?dealID=';
+
+  _launchlink()  {
+    var url = urlOpenLinks+widget.gameDeal.dealID;
+    launch(url);
+  }
+
   @override
   Widget build(BuildContext context) {
     TextStyle detailsStyle = TextStyle(
@@ -26,7 +35,7 @@ class _DealTileState extends State<DealTile> {
         '%';
 
     return ListTile(
-      onTap: () {},
+      onTap: () {_launchlink();},
       contentPadding: EdgeInsets.fromLTRB(16, 10, 16, 10),
       title: Row(
         children: [

@@ -30,7 +30,6 @@ class _DealsListState extends State<DealsList> {
     loadJsonData();
     super.initState();
   }
-  //https://www.cheapshark.com/api/1.0/deals?
 
   Future<void> loadJsonData() async {
     final response = await http.get(Uri.parse(urlJson));

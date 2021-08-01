@@ -18,9 +18,13 @@ class _SettingsPageState extends State<SettingsPage> {
     super.initState();
   }
 
+  String apologiesText = 'Yes, i know that all values are in dollars, '
+      'but the Cheap Shark API is free and can be used at least to follow promotions and get an idea of them.\n'
+      'In Brazil, the percentage of the discount will always be the same, but as there are changes in prices that are practiced around the world, '
+      'the final value cannot be directly converted using the dollar value.';
+
   @override
   Widget build(BuildContext context) {
-
     Color? themeColorText = Theme.of(context).accentTextTheme.headline1!.color;
 
     return Scaffold(
@@ -28,99 +32,108 @@ class _SettingsPageState extends State<SettingsPage> {
           title: Text("Settings"),
           elevation: 0,
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Card(
-                elevation: 1,
-                margin: const EdgeInsets.fromLTRB(16, 20, 16, 25),
-                color: Theme.of(context).accentColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
+        body: ListView(
+          children: <Widget>[
+            Card(
+              elevation: 1,
+              margin: const EdgeInsets.fromLTRB(16, 20, 16, 10),
+              color: Theme.of(context).accentColor.withOpacity(0.8),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
+              child: ListTile(
+                title: Text(
+                  Changelog.appName + " " + Changelog.appVersion,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 17.5),
                 ),
-                child: ListTile(
+              ),
+            ),
+            const Divider(),
+            ListTile(
+              contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+              leading: Icon(
+                Icons.report_problem_outlined,
+              ),
+              title: Text(
+                apologiesText,
+                style:
+                    TextStyle(fontSize: 16, color: Theme.of(context).hintColor),
+              ),
+            ),
+            const Divider(),
+            ListTile(
+              leading: SizedBox(
+                height: 0.1,
+              ),
+              title: Text("About".toUpperCase(),
+                  style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      color: themeColorText)),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.info_outline,
+              ),
+              title: Text(
+                "App Info",
+                style: TextStyle(fontSize: 16),
+              ),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => AppInfoPage(),
+                      fullscreenDialog: true,
+                    ));
+              },
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.article_outlined,
+              ),
+              title: Text(
+                "Changelog",
+                style: TextStyle(fontSize: 16),
+              ),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => ChangelogPage(),
+                      fullscreenDialog: true,
+                    ));
+              },
+            ),
+            const Divider(),
+            ListTile(
+              leading: SizedBox(
+                height: 0.1,
+              ),
+              title: Text("General".toUpperCase(),
+                  style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      color: themeColorText)),
+            ),
+            Consumer<ThemeNotifier>(
+              builder: (context, notifier, child) => SwitchListTile(
                   title: Text(
-                    Changelog.appName + " " + Changelog.appVersion,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 17.5),
+                    "Dark Theme",
+                    style: TextStyle(fontSize: 16),
                   ),
-                ),
-              ),
-              const Divider(),
-              ListTile(
-                leading: SizedBox(height: 0.1,),
-                title:    Text(
-                    "About".toUpperCase(),
-                    style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w700,
-                        color: themeColorText)
-                ),
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.info_outline,
-                ),
-                title: Text(
-                  "App Info",
-                  style: TextStyle(fontSize: 16),
-                ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => AppInfoPage(),
-                        fullscreenDialog: true,
-                      ));
-                },
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.article_outlined,
-                ),
-                title: Text(
-                  "Changelog",
-                  style: TextStyle(fontSize: 16),
-                ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => ChangelogPage(),
-                        fullscreenDialog: true,
-                      ));
-                },
-              ),
-              const Divider(),
-              ListTile(
-                leading: SizedBox(height: 0.1,),
-                title:    Text(
-                    "General".toUpperCase(),
-                    style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w700,
-                        color: themeColorText)
-                ),
-              ),
-              Consumer<ThemeNotifier>(
-                builder: (context, notifier, child) => SwitchListTile(
-                    title: Text(
-                      "Dark Theme",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    secondary: Icon(Icons.brightness_6_outlined),
-                    activeColor: Colors.blue,
-                    value: notifier.darkTheme,
-                    onChanged: (value) {
-                      notifier.toggleTheme();
-                    }),
-              ),
-            ],
-          ),
+                  secondary: Icon(Icons.brightness_6_outlined),
+                  activeColor: Colors.blue,
+                  value: notifier.darkTheme,
+                  onChanged: (value) {
+                    notifier.toggleTheme();
+                  }),
+            ),
+          ],
         ));
   }
 }

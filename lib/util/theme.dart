@@ -35,6 +35,7 @@ ThemeData light = ThemeData(
     ),
     accentTextTheme: TextTheme(
       headline1: TextStyle(color:  Color(0xFFd373f0)),
+      headline2: TextStyle(color:  Color(0xFF845194)),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       showSelectedLabels: false,
@@ -48,14 +49,14 @@ ThemeData light = ThemeData(
 //ESCURO
 ThemeData dark = ThemeData(
     brightness: Brightness.dark,
-    primaryColor: Color(0xFF202022),
+    primaryColor: Color(0xFF202020),
     accentColor: Color(0xFFB17FBF),
-    scaffoldBackgroundColor: Color(0xFF202022),
+    scaffoldBackgroundColor: Color(0xFF202020),
     cardTheme: CardTheme(
-      color: Color(0xFF2D2D2F),
+      color: Color(0xFF2D2D2D),
     ),
     dialogTheme: DialogTheme(
-      backgroundColor: Color(0xFF29292B),
+      backgroundColor: Color(0xFF292929),
     ),
     inputDecorationTheme: InputDecorationTheme(
         contentPadding: EdgeInsets.symmetric(
@@ -79,15 +80,16 @@ ThemeData dark = ThemeData(
     ),
     accentTextTheme: TextTheme(
       headline1: TextStyle(color:  Color(0xFFc9a5d4)),
+      headline2: TextStyle(color:  Color(0xFF826a8a)),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       showSelectedLabels: false,
       showUnselectedLabels: true,
-      backgroundColor: Color(0xFF151517),
+      backgroundColor: Color(0xFF151515),
     ),
-    bottomAppBarColor: Color(0xFF151517),
+    bottomAppBarColor: Color(0xFF151515),
     bottomSheetTheme:
-        BottomSheetThemeData(modalBackgroundColor: Color(0xFF202022)));
+        BottomSheetThemeData(modalBackgroundColor: Color(0xFF202020)));
 
 class ThemeNotifier extends ChangeNotifier {
   final String key = 'valorTema';
