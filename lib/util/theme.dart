@@ -4,38 +4,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 //CLARO
 ThemeData light = ThemeData(
     brightness: Brightness.light,
-    primaryColor: Color(0xFFF3F3F3),
-    accentColor: Colors.purple,
-    scaffoldBackgroundColor: Color(0xFFF3F3F3),
+    primaryColor: Color(0xFFFFFFFF),
+    accentColor: Colors.purple[600],
+    scaffoldBackgroundColor: Color(0xFFFFFFFF),
     cardTheme: CardTheme(
       color: Color(0xFFFFFFFF),
     ),
     dialogTheme: DialogTheme(
       backgroundColor: Color(0xFFF9F9F9),
     ),
-    inputDecorationTheme: InputDecorationTheme(
-        contentPadding: EdgeInsets.symmetric(
-            vertical: 15.0, horizontal: 10.0),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.red,
-          ),
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey,
-            ),
-            borderRadius: BorderRadius.circular(15.0)),
-        border: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey,
-            ),
-            borderRadius: BorderRadius.circular(15.0))
-    ),
     accentTextTheme: TextTheme(
-      headline1: TextStyle(color:  Color(0xFFd373f0)),
-      headline2: TextStyle(color:  Color(0xFF845194)),
+      headline1: TextStyle(color: Color(0xFFab3cc9)),
+      headline2: TextStyle(color: Color(0xFFc790de)),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       showSelectedLabels: false,
@@ -58,32 +38,12 @@ ThemeData dark = ThemeData(
     dialogTheme: DialogTheme(
       backgroundColor: Color(0xFF292929),
     ),
-    inputDecorationTheme: InputDecorationTheme(
-        contentPadding: EdgeInsets.symmetric(
-            vertical: 15.0, horizontal: 10.0),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Color(0xFFD46062),
-          ),
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey,
-            ),
-            borderRadius: BorderRadius.circular(15.0)),
-        border: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey,
-            ),
-            borderRadius: BorderRadius.circular(15.0))
-    ),
     accentTextTheme: TextTheme(
-      headline1: TextStyle(color:  Color(0xFFc9a5d4)),
-      headline2: TextStyle(color:  Color(0xFF826a8a)),
+      headline1: TextStyle(color: Color(0xFFc9a5d4)),
+      headline2: TextStyle(color: Color(0xFF4f4452)),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      showSelectedLabels: false,
+      showSelectedLabels: true,
       showUnselectedLabels: true,
       backgroundColor: Color(0xFF151515),
     ),
@@ -99,7 +59,7 @@ class ThemeNotifier extends ChangeNotifier {
   bool get darkTheme => _darkTheme;
 
   ThemeNotifier() {
-     _darkTheme = true;
+    _darkTheme = true;
     _loadFromPrefs();
   }
 
@@ -110,7 +70,7 @@ class ThemeNotifier extends ChangeNotifier {
   }
 
   _initPrefs() async {
-      prefs = await SharedPreferences.getInstance();
+    prefs = await SharedPreferences.getInstance();
   }
 
   _loadFromPrefs() async {

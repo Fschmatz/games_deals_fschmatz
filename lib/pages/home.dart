@@ -53,22 +53,22 @@ class _HomeState extends State<Home> {
               hoverColor: Theme.of(context).accentColor.withOpacity(0.4),
               gap: 0,
               activeColor: Theme.of(context).accentColor,
-              tabBorderRadius: 18,
-              iconSize: 15,
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+              tabBorderRadius: 15,
+              iconSize: 0,
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 14),
               duration: Duration(milliseconds: 500),
               tabBackgroundColor:
-                  Theme.of(context).accentTextTheme.headline2!.color!.withOpacity(0.6),
+              Theme.of(context).accentTextTheme.headline2!.color!,
               backgroundColor:
-                  Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
+              Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
               tabs: [
                 GButton(
                   icon: Icons.circle,
-                  leading: Text('   Epic', style: styleFontNavBar),
+                  leading: Text('   Epic',style: styleFontNavBar),
                 ),
                 GButton(
                   icon: Icons.circle,
-                  leading: Text('   Steam', style: styleFontNavBar),
+                  leading: Text('   Steam',style: styleFontNavBar),
                 ),
                 GButton(
                   icon: Icons.circle,
@@ -76,7 +76,7 @@ class _HomeState extends State<Home> {
                 ),
                 GButton(
                   icon: Icons.circle,
-                  leading: Text('   Origin', style: styleFontNavBar),
+                  leading: Text('   Origin',style: styleFontNavBar),
                 ),
               ],
               selectedIndex: _currentIndex,
@@ -92,3 +92,4 @@ class _HomeState extends State<Home> {
     );
   }
 }
+

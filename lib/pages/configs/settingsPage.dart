@@ -19,7 +19,7 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   String apologiesText = 'Yes, i know that all values are in dollars, '
-      'but the Cheap Shark API is free and can be used at least to follow promotions and get an idea of them.\n'
+      'but the CheapShark API is free and can be used at least to track promotions.\n'
       'In Brazil, the percentage of the discount will always be the same, but as there are changes in prices that are practiced around the world, '
       'the final value cannot be directly converted using the dollar value.';
 
