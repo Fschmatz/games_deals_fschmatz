@@ -13,11 +13,10 @@ class DealTile extends StatefulWidget {
 }
 
 class _DealTileState extends State<DealTile> {
-
   String urlOpenLinks = 'https://www.cheapshark.com/redirect?dealID=';
 
-  _launchlink()  {
-    var url = urlOpenLinks+widget.gameDeal.dealID;
+  _launchlink() {
+    var url = urlOpenLinks + widget.gameDeal.dealID;
     launch(url);
   }
 
@@ -25,7 +24,7 @@ class _DealTileState extends State<DealTile> {
   Widget build(BuildContext context) {
     TextStyle detailsStyle = TextStyle(
         fontSize: 14,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
         color: Theme.of(context).accentTextTheme.headline1!.color);
 
     String percentDiscountFormatted = double.parse(widget.gameDeal.savings)
@@ -35,7 +34,9 @@ class _DealTileState extends State<DealTile> {
         '%';
 
     return ListTile(
-      onTap: () {_launchlink();},
+      onTap: () {
+        _launchlink();
+      },
       contentPadding: EdgeInsets.fromLTRB(16, 10, 16, 10),
       title: Row(
         children: [
@@ -52,15 +53,23 @@ class _DealTileState extends State<DealTile> {
           ),
           Visibility(
               visible: percentDiscountFormatted != '0%',
-              child: SizedBox(width: 15,)),
+              child: SizedBox(
+                width: 15,
+              )),
           Flexible(child: Text(widget.gameDeal.title)),
         ],
       ),
-      trailing: Text(
-        '\$' + widget.gameDeal.salePrice.toString(),
-        textAlign: TextAlign.center,
-        style: detailsStyle,
-      ),
+      trailing: widget.gameDeal.salePrice.toString() == '0.00'
+          ? Text(
+              'FREE',
+              textAlign: TextAlign.center,
+              style: detailsStyle,
+            )
+          : Text(
+              '\$ ' + widget.gameDeal.salePrice.toString(),
+              textAlign: TextAlign.center,
+              style: detailsStyle,
+            ),
     );
   }
 }

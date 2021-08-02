@@ -40,7 +40,7 @@ ThemeData dark = ThemeData(
     ),
     accentTextTheme: TextTheme(
       headline1: TextStyle(color: Color(0xFFc9a5d4)),
-      headline2: TextStyle(color: Color(0xFF4f4452)),
+      headline2: TextStyle(color: Color(0xFF5c4a61)),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       showSelectedLabels: true,
