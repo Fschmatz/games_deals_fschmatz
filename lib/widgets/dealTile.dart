@@ -24,7 +24,7 @@ class _DealTileState extends State<DealTile> {
   Widget build(BuildContext context) {
     TextStyle detailsStyle = TextStyle(
         fontSize: 14,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w600,
         color: Theme.of(context).accentTextTheme.headline1!.color);
 
     String percentDiscountFormatted = double.parse(widget.gameDeal.savings)
