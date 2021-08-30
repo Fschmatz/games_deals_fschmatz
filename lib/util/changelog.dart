@@ -1,10 +1,10 @@
 class Changelog{
 
-  static String appVersion = "1.1.1";
+  static String appVersion = "1.1.2";
   static String appName = "Games Deals Fschmatz";
 
   static String changelogCurrent = '''
-1.1.1
+1.1.2
 - Open Store Links using CheapShark Links as asked on the API Docs
 - UI Changes
 - Small Fix

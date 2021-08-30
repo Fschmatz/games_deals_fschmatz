@@ -24,11 +24,11 @@ class _HomeState extends State<Home> {
     ),
     DealsList(
       key: UniqueKey(),
-      currentStore: 6,
+      currentStore: 7,
     ),
     DealsList(
       key: UniqueKey(),
-      currentStore: 7,
+      currentStore: 8,
     ),
   ];
 
