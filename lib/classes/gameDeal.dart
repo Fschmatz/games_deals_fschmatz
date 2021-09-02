@@ -5,7 +5,7 @@ class GameDeal {
   final String internalName;
   final String storeID;
   final String salePrice;
-  final String savings;//dealID
+  final String savings;
   final String dealID;
 
   GameDeal(

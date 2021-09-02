@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:games_deals_fschmatz/pages/searchPage.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:games_deals_fschmatz/classes/gameDeal.dart';
@@ -54,7 +55,7 @@ class _DealsListState extends State<DealsList> {
           actions: [
             IconButton(
                 icon: Icon(
-                  Icons.settings_outlined,
+                  Icons.search_outlined,
                   color: Theme.of(context)
                       .textTheme
                       .headline6!
@@ -65,10 +66,30 @@ class _DealsListState extends State<DealsList> {
                   Navigator.push(
                       context,
                       MaterialPageRoute<void>(
-                        builder: (BuildContext context) => SettingsPage(),
+                        builder: (BuildContext context) => SearchPage(),
                         fullscreenDialog: true,
                       ));
                 }),
+            PopupMenuButton(
+              icon: Icon( Icons.more_vert_outlined),
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    child: Text("Settings"),
+                    value: 1,
+                  ),
+                ],
+              onSelected: (value) {
+               if(value == 1){
+                 Navigator.push(
+                     context,
+                     MaterialPageRoute<void>(
+                       builder: (BuildContext context) => SettingsPage(),
+                       fullscreenDialog: true,
+                     ));
+               }
+              },
+            ),
+
           ],
         ),
         body: loading

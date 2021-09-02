@@ -9,7 +9,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   // DOCS -> https://apidocs.cheapshark.com/
-  // Steam = 1 , Epic = 25, GOG = 6, Origin = 7
+  // Steam = 1 , Epic = 25, GOG = 7, Origin = 8
 
   //start with Epic
   int _currentIndex = 0;
@@ -34,6 +34,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+
     TextStyle styleFontNavBar = TextStyle(
         fontSize: 14.5,
         fontWeight: FontWeight.w600,

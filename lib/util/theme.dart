@@ -22,7 +22,30 @@ ThemeData light = ThemeData(
       showUnselectedLabels: true,
       backgroundColor: Color(0xFFE0E0E0),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+        fillColor: Color(0xFFF1F1F1),
+        focusColor: Colors.purple[600],
+        contentPadding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.purple[600]!,
+          ),
+          borderRadius: BorderRadius.circular(25.0),
+        ),
+        enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.transparent,
+            ),
+            borderRadius: BorderRadius.circular(25.0)),
+        border: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.transparent,
+            ),
+            borderRadius: BorderRadius.circular(25.0))),
     bottomAppBarColor: Color(0xFFE0E0E0),
+    popupMenuTheme: PopupMenuThemeData(
+      color: Color(0xFFE9E9E9),
+    ),
     bottomSheetTheme:
         BottomSheetThemeData(modalBackgroundColor: Color(0xFFF3F3F3)));
 
@@ -38,6 +61,9 @@ ThemeData dark = ThemeData(
     dialogTheme: DialogTheme(
       backgroundColor: Color(0xFF292929),
     ),
+    popupMenuTheme: PopupMenuThemeData(
+      color: Color(0xFF2D2D2D),
+    ),
     accentTextTheme: TextTheme(
       headline1: TextStyle(color: Color(0xFFc9a5d4)),
       headline2: TextStyle(color: Color(0xFF5c4a61)),
@@ -45,9 +71,29 @@ ThemeData dark = ThemeData(
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       showSelectedLabels: true,
       showUnselectedLabels: true,
-      backgroundColor: Color(0xFF151515),
+      backgroundColor: Color(0xFF141414),
     ),
-    bottomAppBarColor: Color(0xFF151515),
+    inputDecorationTheme: InputDecorationTheme(
+        fillColor: Color(0xFF2D2D2D),
+        focusColor: Color(0xFFB17FBF),
+        contentPadding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0xFFB17FBF),
+          ),
+          borderRadius: BorderRadius.circular(25.0),
+        ),
+        enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.transparent,
+            ),
+            borderRadius: BorderRadius.circular(25.0)),
+        border: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.transparent,
+            ),
+            borderRadius: BorderRadius.circular(25.0))),
+    bottomAppBarColor: Color(0xFF141414),
     bottomSheetTheme:
         BottomSheetThemeData(modalBackgroundColor: Color(0xFF1E1E1E)));
 
