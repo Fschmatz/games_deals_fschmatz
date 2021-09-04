@@ -55,29 +55,6 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             const Divider(),
             ListTile(
-              contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-              leading: Icon(
-                Icons.report_problem_outlined,
-              ),
-              title: Text(
-                apologiesText,
-                style:
-                    TextStyle(fontSize: 16, color: Theme.of(context).hintColor),
-              ),
-            ),
-            ListTile(
-              contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-              leading: SizedBox(
-                height: 0.1,
-              ),
-              title: Text(
-                apiExplain,
-                style:
-                TextStyle(fontSize: 16, color: Theme.of(context).hintColor),
-              ),
-            ),
-            const Divider(),
-            ListTile(
               leading: SizedBox(
                 height: 0.1,
               ),
@@ -123,6 +100,28 @@ class _SettingsPageState extends State<SettingsPage> {
                       fullscreenDialog: true,
                     ));
               },
+            ),
+            ListTile(
+              contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+              leading: Icon(
+                Icons.report_problem_outlined,
+              ),
+              title: Text(
+                apologiesText,
+                style:
+                TextStyle(fontSize: 16, color: Theme.of(context).hintColor),
+              ),
+            ),
+            ListTile(
+              contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+              leading: SizedBox(
+                height: 0.1,
+              ),
+              title: Text(
+                apiExplain,
+                style:
+                TextStyle(fontSize: 16, color: Theme.of(context).hintColor),
+              ),
             ),
             const Divider(),
             ListTile(

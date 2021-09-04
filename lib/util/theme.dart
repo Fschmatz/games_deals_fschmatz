@@ -23,7 +23,7 @@ ThemeData light = ThemeData(
       backgroundColor: Color(0xFFE0E0E0),
     ),
     inputDecorationTheme: InputDecorationTheme(
-        fillColor: Color(0xFFF1F1F1),
+        fillColor: Color(0xFFF3F3F3),
         focusColor: Colors.purple[600],
         contentPadding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),
         focusedBorder: OutlineInputBorder(
@@ -74,7 +74,7 @@ ThemeData dark = ThemeData(
       backgroundColor: Color(0xFF141518),
     ),
     inputDecorationTheme: InputDecorationTheme(
-        fillColor: Color(0xFF2D2D2D),
+        fillColor: Color(0xFF2B2C2F),
         focusColor: Color(0xFFB17FBF),
         contentPadding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),
         focusedBorder: OutlineInputBorder(
