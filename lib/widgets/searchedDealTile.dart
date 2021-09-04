@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'package:dynamic_value/dynamic_value.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:games_deals_fschmatz/classes/searchedGameDeal.dart';
@@ -22,24 +19,8 @@ class _SearchedDealTileState extends State<SearchedDealTile> {
   @override
   void initState() {
     _dealID = widget.searchedGameDeal.dealID;
-   // getStoreName();
     super.initState();
   }
-
-  /*Future<void> getStoreName() async {
-    String urlApi = 'https://www.cheapshark.com/api/1.0/deals?id=$_dealID';
-
-    final response = await http.get(Uri.parse(urlApi));
-    final value = DynamicValue(json.decode(response.body));
-
-    print(json.decode(response.body));
-    if (response.statusCode == 200) {
-      print('ID LOJA -> '+value['gameInfo'].toMap().toString());
-      //return value['storeID'].toString();
-    }
-  }*/
-
-  // print(value['gameInfo'][0]['storeID'].toString());
 
   _launchlink() {
     var url = urlOpenLinks + widget.searchedGameDeal.dealID;

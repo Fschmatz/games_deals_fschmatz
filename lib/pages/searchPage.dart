@@ -17,7 +17,7 @@ class _SearchPageState extends State<SearchPage> {
   bool _loadingSearch = false;
   TextStyle styleButtonsLang =
       TextStyle(fontSize: 14, fontWeight: FontWeight.w700);
-
+  bool focus = true;
   String _selectedStore = '25';
   String _urlApi = '';
 
@@ -40,84 +40,74 @@ class _SearchPageState extends State<SearchPage> {
     }
   }
 
-  void _loseFocus() {
-    FocusScopeNode currentFocus = FocusScope.of(context);
-    if (!currentFocus.hasPrimaryFocus) {
-      currentFocus.unfocus();
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     Color? textAccent = Theme.of(context).accentTextTheme.headline1!.color;
 
-    return GestureDetector(
-        onTap: () {
-          _loseFocus();
-        },
-        child: Scaffold(
-          appBar: AppBar(
-            elevation: 0,
-            title: Text('Search Game'),
-            bottom: PreferredSize(
-                preferredSize: Size(double.infinity, 3),
-                child: _loadingSearch
-                    ? LinearProgressIndicator(
-                  minHeight: 3,
-                  valueColor: new AlwaysStoppedAnimation<Color>(
-                      Theme.of(context).accentColor.withOpacity(0.8)),
-                  backgroundColor:
-                  Theme.of(context).accentColor.withOpacity(0.3),
-                )
-                    : SizedBox(height: 3,)),
-          ),
-          body: ListView(physics: AlwaysScrollableScrollPhysics(), children: [
-            ListTile(
-                leading:
-                    Icon(Icons.videogame_asset_outlined, color: textAccent),
-                title: Text("Game".toUpperCase(),
-                    style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w700,
-                        color: textAccent))),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 5, 16, 10),
-              child: TextField(
-                  minLines: 1,
-                  textCapitalization: TextCapitalization.sentences,
-                  controller: controllerGameName,
-                  textAlign: TextAlign.center,
-                  autofocus: true,
-                  style: TextStyle(
-                    fontSize: 17,
-                  ),
-                  decoration: InputDecoration(
-                    filled: true,
-                  ),
-                  onEditingComplete: () {
-                    if (controllerGameName.text.isNotEmpty) {
-                      _loseFocus();
-                      _searchGame(controllerGameName.text);
-                    }
-                  }),
-            ),
-            _loadingSearch
-                ? SizedBox.shrink()
-                : ListView.separated(
-                    physics: NeverScrollableScrollPhysics(),
-                    separatorBuilder: (context, index) => const Divider(
-                          height: 0,
-                        ),
-                    shrinkWrap: true,
-                    itemCount: _gamesDealsList.length,
-                    itemBuilder: (context, index) {
-                      return SearchedDealTile(
-                          searchedGameDeal: _gamesDealsList[index]);
-                    }),
-            const SizedBox(
-              height: 50,
-            )
-          ]),
-        ));
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        title: Text('Search Game'),
+        bottom: PreferredSize(
+            preferredSize: Size(double.infinity, 3),
+            child: _loadingSearch
+                ? LinearProgressIndicator(
+                    minHeight: 3,
+                    valueColor: new AlwaysStoppedAnimation<Color>(
+                        Theme.of(context).accentColor.withOpacity(0.8)),
+                    backgroundColor:
+                        Theme.of(context).accentColor.withOpacity(0.3),
+                  )
+                : SizedBox(
+                    height: 3,
+                  )),
+      ),
+      body: ListView(physics: AlwaysScrollableScrollPhysics(), children: [
+        ListTile(
+            leading: Icon(Icons.videogame_asset_outlined, color: textAccent),
+            title: Text("Game".toUpperCase(),
+                style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                    color: textAccent))),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 5, 16, 10),
+          child: TextField(
+              minLines: 1,
+              textCapitalization: TextCapitalization.sentences,
+              controller: controllerGameName,
+              textAlign: TextAlign.center,
+              autofocus: focus,
+              style: TextStyle(
+                fontSize: 17,
+              ),
+              decoration: InputDecoration(
+                filled: true,
+              ),
+              onEditingComplete: () {
+                if (controllerGameName.text.isNotEmpty) {
+                  focus = false;
+                  _searchGame(controllerGameName.text);
+                }
+              }),
+        ),
+        _loadingSearch
+            ? SizedBox.shrink()
+            : ListView.separated(
+                physics: NeverScrollableScrollPhysics(),
+                separatorBuilder: (context, index) => const Divider(
+                      height: 0,
+                    ),
+                shrinkWrap: true,
+                itemCount: _gamesDealsList.length,
+                itemBuilder: (context, index) {
+                  return SearchedDealTile(
+                      searchedGameDeal: _gamesDealsList[index]);
+                }),
+        const SizedBox(
+          height: 50,
+        )
+      ]),
+    );
   }
 }

@@ -23,6 +23,10 @@ class _SettingsPageState extends State<SettingsPage> {
       'In Brazil, the percentage of the discount will always be the same, but as there are changes in prices that are practiced around the world, '
       'the final value cannot be directly converted using the dollar value.';
 
+  String apiExplain = 'Giveaways page use the GamerPower API and the store pages '
+      'are using the CheapShark API.';
+
+
   @override
   Widget build(BuildContext context) {
     Color? themeColorText = Theme.of(context).accentTextTheme.headline1!.color;
@@ -59,6 +63,17 @@ class _SettingsPageState extends State<SettingsPage> {
                 apologiesText,
                 style:
                     TextStyle(fontSize: 16, color: Theme.of(context).hintColor),
+              ),
+            ),
+            ListTile(
+              contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+              leading: SizedBox(
+                height: 0.1,
+              ),
+              title: Text(
+                apiExplain,
+                style:
+                TextStyle(fontSize: 16, color: Theme.of(context).hintColor),
               ),
             ),
             const Divider(),
