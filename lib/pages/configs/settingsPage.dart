@@ -148,6 +148,9 @@ class _SettingsPageState extends State<SettingsPage> {
                     notifier.toggleTheme();
                   }),
             ),
+            const SizedBox(
+              height: 50,
+            )
           ],
         ));
   }

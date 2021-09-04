@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:games_deals_fschmatz/classes/giveaway.dart';
-import 'package:games_deals_fschmatz/util/store_icons_icons.dart';
+import 'package:games_deals_fschmatz/util/storeIcons.dart';
 import 'package:games_deals_fschmatz/widgets/giveawayTile.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -13,7 +13,6 @@ class GiveawayPage extends StatefulWidget {
 }
 
 class _GiveawayPageState extends State<GiveawayPage> {
-
   //API
   //https://www.gamerpower.com/api-read
 
@@ -42,7 +41,8 @@ class _GiveawayPageState extends State<GiveawayPage> {
     }
   }
 
-  Widget separatedList(String shopName, IconData iconLoja,BuildContext context) {
+  Widget separatedList(
+      String shopName, IconData iconLoja, BuildContext context) {
     TextStyle titleStyle = TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.w700,
@@ -83,11 +83,11 @@ class _GiveawayPageState extends State<GiveawayPage> {
             : ListView(physics: AlwaysScrollableScrollPhysics(), children: [
                 separatedList('Epic', StoreIcons.epic, context),
                 const Divider(),
-                separatedList('Steam', StoreIcons.steam_symbol, context),
-                const Divider(),
                 separatedList('Origin', StoreIcons.origin, context),
                 const Divider(),
-                separatedList('GOG', StoreIcons.gog, context),
+                separatedList('GOG', StoreIcons.gogv3, context),
+          const Divider(),
+                separatedList('Steam', StoreIcons.steam, context),
                 const SizedBox(
                   height: 50,
                 )

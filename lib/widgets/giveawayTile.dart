@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:games_deals_fschmatz/classes/giveaway.dart';
+import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class GiveawayTile extends StatefulWidget {
@@ -26,6 +27,31 @@ class _GiveawayTileState extends State<GiveawayTile> {
       },
       contentPadding: EdgeInsets.fromLTRB(16, 10, 16, 10),
       title: Text(widget.giveaway.title),
+      trailing:Container(
+        width: 55,
+        child: TextButton(
+          onPressed: () {
+            Share.share( widget.giveaway.giveawayUrl);
+          },
+          child: Icon(
+            Icons.share_outlined,
+            size: 20,
+            color: Theme.of(context)
+                .textTheme
+                .headline6!
+                .color!
+                .withOpacity(0.6),
+          ),
+          style: ElevatedButton.styleFrom(
+            elevation: 0,
+            primary: Theme.of(context).cardTheme.color,
+            onPrimary: Theme.of(context).accentColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50.0),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -17,7 +17,7 @@ class _SearchPageState extends State<SearchPage> {
   bool _loadingSearch = false;
   TextStyle styleButtonsLang =
       TextStyle(fontSize: 14, fontWeight: FontWeight.w700);
-  bool focus = true;
+
   String _selectedStore = '25';
   String _urlApi = '';
 
@@ -62,52 +62,56 @@ class _SearchPageState extends State<SearchPage> {
                     height: 3,
                   )),
       ),
-      body: ListView(physics: AlwaysScrollableScrollPhysics(), children: [
-        ListTile(
-            leading: Icon(Icons.videogame_asset_outlined, color: textAccent),
-            title: Text("Game".toUpperCase(),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 5, 16, 15),
+            child: TextField(
+                minLines: 1,
+                textCapitalization: TextCapitalization.sentences,
+                controller: controllerGameName,
+                autofocus: true,
                 style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
-                    color: textAccent))),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 5, 16, 10),
-          child: TextField(
-              minLines: 1,
-              textCapitalization: TextCapitalization.sentences,
-              controller: controllerGameName,
-              textAlign: TextAlign.center,
-              autofocus: focus,
-              style: TextStyle(
-                fontSize: 17,
-              ),
-              decoration: InputDecoration(
-                filled: true,
-              ),
-              onEditingComplete: () {
-                if (controllerGameName.text.isNotEmpty) {
-                  focus = false;
-                  _searchGame(controllerGameName.text);
-                }
-              }),
-        ),
-        _loadingSearch
-            ? SizedBox.shrink()
-            : ListView.separated(
-                physics: NeverScrollableScrollPhysics(),
-                separatorBuilder: (context, index) => const Divider(
-                      height: 0,
-                    ),
-                shrinkWrap: true,
-                itemCount: _gamesDealsList.length,
-                itemBuilder: (context, index) {
-                  return SearchedDealTile(
-                      searchedGameDeal: _gamesDealsList[index]);
+                  fontSize: 17,
+                ),
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.videogame_asset_outlined,color: textAccent ),
+                  filled: true,
+                ),
+                onEditingComplete: () {
+                  if (controllerGameName.text.isNotEmpty) {
+                    FocusScope.of(context).unfocus();
+                    _searchGame(controllerGameName.text);
+                  }
                 }),
-        const SizedBox(
-          height: 50,
-        )
-      ]),
+          ),
+          Flexible(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  _loadingSearch
+                      ? SizedBox.shrink()
+                      : ListView.separated(
+                          //physics: AlwaysScrollableScrollPhysics(),
+                          physics: NeverScrollableScrollPhysics(),
+                          separatorBuilder: (context, index) => const Divider(
+                                height: 0,
+                              ),
+                          shrinkWrap: true,
+                          itemCount: _gamesDealsList.length,
+                          itemBuilder: (context, index) {
+                            return SearchedDealTile(
+                                searchedGameDeal: _gamesDealsList[index]);
+                          }),
+                  const SizedBox(
+                    height: 50,
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

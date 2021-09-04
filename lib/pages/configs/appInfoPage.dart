@@ -3,15 +3,13 @@ import 'package:games_deals_fschmatz/util/changelog.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppInfoPage extends StatelessWidget {
-
-  _launchGithub()  {
+  _launchGithub() {
     const url = 'https://github.com/Fschmatz/games_deals_fschmatz';
     launch(url);
   }
 
   @override
   Widget build(BuildContext context) {
-
     Color? themeColorText = Theme.of(context).accentTextTheme.headline1!.color;
 
     return Scaffold(
@@ -31,7 +29,7 @@ class AppInfoPage extends StatelessWidget {
           ),
           const SizedBox(height: 15),
           Center(
-            child: Text(Changelog.appName +" "+ Changelog.appVersion,
+            child: Text(Changelog.appName + " " + Changelog.appVersion,
                 style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w700,
@@ -50,18 +48,7 @@ class AppInfoPage extends StatelessWidget {
                     color: themeColorText)),
           ),
           ListTile(
-            leading: Icon( Icons.info_outline),
-            title: Text(
-              "HAMMERED AND REDONE: 0 Times !!!",
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          ),
-          ListTile(
-            leading: SizedBox(
-              height: 0.1,
-            ),
+            leading: Icon(Icons.info_outline),
             title: Text(
               "Application created using Flutter and the Dart language, used for testing and learning.",
               style: TextStyle(
@@ -81,12 +68,13 @@ class AppInfoPage extends StatelessWidget {
                     color: themeColorText)),
           ),
           ListTile(
-            onTap: () {_launchGithub();},
+            onTap: () {
+              _launchGithub();
+            },
             leading: Icon(Icons.open_in_new_outlined),
             title: Text("View on GitHub",
                 style: TextStyle(
-                    decoration: TextDecoration.underline,
-                    color: Colors.blue)),
+                    decoration: TextDecoration.underline, color: Colors.blue)),
           ),
           const Divider(),
           ListTile(
