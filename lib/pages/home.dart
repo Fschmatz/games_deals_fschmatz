@@ -12,8 +12,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  //APIs
   // DOCS -> https://apidocs.cheapshark.com/
   // Steam = 1 , Epic = 25, GOG = 7, Origin = 8
+  //https://www.gamerpower.com/api-read
 
   int _currentIndex = 0;
   List<Widget> _storesList = [
@@ -26,11 +28,11 @@ class _HomeState extends State<Home> {
     ),
     DealsListPage(
       key: UniqueKey(),
-      currentStore: 8,
+      currentStore: 7,
     ),
     DealsListPage(
       key: UniqueKey(),
-      currentStore: 7,
+      currentStore: 8,
     ),
     DealsListPage(
       key: UniqueKey(),
@@ -116,7 +118,7 @@ class _HomeState extends State<Home> {
               tabs: [
                 GButton(
                   icon: Icons.local_offer_rounded,
-                  text: 'Giveaways',
+                  text: 'Giveaway',
                   textStyle: styleFontNavBar,
                 ),
                 GButton(
@@ -125,14 +127,14 @@ class _HomeState extends State<Home> {
                   textStyle: styleFontNavBar,
                 ),
                 GButton(
-                  icon: StoreIcons.origin,
-                  text: 'Origin',
-                  textStyle: styleFontNavBar,
-                ),
-                GButton(
                   icon: StoreIcons.gogv3,
                   iconSize: 23,
                   text: 'GOG',
+                  textStyle: styleFontNavBar,
+                ),
+                GButton(
+                  icon: StoreIcons.origin,
+                  text: 'Origin',
                   textStyle: styleFontNavBar,
                 ),
                 GButton(

@@ -13,17 +13,13 @@ class GiveawayPage extends StatefulWidget {
 }
 
 class _GiveawayPageState extends State<GiveawayPage> {
-  //API
-  //https://www.gamerpower.com/api-read
 
   bool loading = true;
   List<Giveaway> giveawayList = [];
-  String urlJson = '';
+  String urlJson = 'https://www.gamerpower.com/api/filter?platform=epic-games-store.steam.origin.gog';
 
   @override
   void initState() {
-    urlJson =
-        'https://www.gamerpower.com/api/filter?platform=epic-games-store.steam.origin.gog';
     loadJsonData();
     super.initState();
   }
@@ -83,10 +79,10 @@ class _GiveawayPageState extends State<GiveawayPage> {
             : ListView(physics: AlwaysScrollableScrollPhysics(), children: [
                 separatedList('Epic', StoreIcons.epic, context),
                 const Divider(),
+                separatedList('GOG', StoreIcons.gogv3, context),
+                const Divider(),
                 separatedList('Origin', StoreIcons.origin, context),
                 const Divider(),
-                separatedList('GOG', StoreIcons.gogv3, context),
-          const Divider(),
                 separatedList('Steam', StoreIcons.steam, context),
                 const SizedBox(
                   height: 50,

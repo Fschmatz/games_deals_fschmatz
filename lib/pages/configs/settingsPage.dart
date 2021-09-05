@@ -18,13 +18,13 @@ class _SettingsPageState extends State<SettingsPage> {
     super.initState();
   }
 
-  String apologiesText = 'Yes, i know that all values are in dollars, '
+  String apologiesText = 'All values are in dollars, '
       'but the CheapShark API is free and can be used at least to track promotions.\n'
-      'In Brazil, the percentage of the discount will always be the same, but as there are changes in prices that are practiced around the world, '
-      'the final value cannot be directly converted using the dollar value.';
-
-  String apiExplain = 'Giveaways page use the GamerPower API and the store pages '
+      'For Brazil, the percentage of the discount will always be the same, but as there are changes in prices that are practiced around the world, '
+      'the final value cannot be directly converted using the dollar value.\n'
+      'The giveaway page uses the GamerPower API, the store and search pages '
       'are using the CheapShark API.';
+
 
 
   @override
@@ -112,17 +112,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 TextStyle(fontSize: 16, color: Theme.of(context).hintColor),
               ),
             ),
-            ListTile(
-              contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-              leading: SizedBox(
-                height: 0.1,
-              ),
-              title: Text(
-                apiExplain,
-                style:
-                TextStyle(fontSize: 16, color: Theme.of(context).hintColor),
-              ),
-            ),
             const Divider(),
             ListTile(
               leading: SizedBox(
@@ -147,9 +136,6 @@ class _SettingsPageState extends State<SettingsPage> {
                     notifier.toggleTheme();
                   }),
             ),
-            const SizedBox(
-              height: 50,
-            )
           ],
         ));
   }
