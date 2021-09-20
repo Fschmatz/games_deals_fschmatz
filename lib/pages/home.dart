@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:games_deals_fschmatz/pages/giveawayPage.dart';
-import 'package:games_deals_fschmatz/pages/searchPage.dart';
-import 'package:games_deals_fschmatz/pages/dealsListPage.dart';
+import 'package:games_deals_fschmatz/pages/giveaway_page.dart';
+import 'package:games_deals_fschmatz/pages/search_page.dart';
+import 'package:games_deals_fschmatz/pages/deals_list_page.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:games_deals_fschmatz/util/storeIcons.dart';
-import 'configs/settingsPage.dart';
+import 'package:games_deals_fschmatz/util/store_icons.dart';
+import 'configs/settings_page.dart';
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -18,7 +20,7 @@ class _HomeState extends State<Home> {
   //https://www.gamerpower.com/api-read
 
   int _currentIndex = 0;
-  List<Widget> _storesList = [
+  final List<Widget> _storesList = [
     GiveawayPage(
       key: UniqueKey(),
     ),
@@ -49,7 +51,7 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Games Deals'),
+        title: const Text('Games Deals'),
         elevation: 0,
         actions: [
           Padding(
@@ -85,7 +87,7 @@ class _HomeState extends State<Home> {
                 Navigator.push(
                     context,
                     MaterialPageRoute<void>(
-                      builder: (BuildContext context) => SettingsPage(),
+                      builder: (BuildContext context) => const SettingsPage(),
                       fullscreenDialog: true,
                     ));
               }),
@@ -98,7 +100,7 @@ class _HomeState extends State<Home> {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
             child: GNav(
               rippleColor: Theme.of(context).accentColor.withOpacity(0.4),
               hoverColor: Theme.of(context).accentColor.withOpacity(0.4),
@@ -109,8 +111,8 @@ class _HomeState extends State<Home> {
                   .withOpacity(0.7),
               gap: 10,
               activeColor: Theme.of(context).accentColor,
-              padding: EdgeInsets.symmetric(horizontal: 18, vertical: 10),
-              duration: Duration(milliseconds: 500),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              duration: const Duration(milliseconds: 500),
               tabBackgroundColor:
                   Theme.of(context).accentColor.withOpacity(0.3),
               backgroundColor:

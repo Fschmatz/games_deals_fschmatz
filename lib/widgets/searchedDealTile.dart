@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:games_deals_fschmatz/classes/searchedGameDeal.dart';
+import 'package:games_deals_fschmatz/classes/searched_game_deal.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SearchedDealTile extends StatefulWidget {

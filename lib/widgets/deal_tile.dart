@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:games_deals_fschmatz/classes/gameDeal.dart';
+import 'package:games_deals_fschmatz/classes/game_deal.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DealTile extends StatefulWidget {
@@ -37,7 +37,7 @@ class _DealTileState extends State<DealTile> {
       onTap: () {
         _launchlink();
       },
-      contentPadding: EdgeInsets.fromLTRB(16, 10, 16, 10),
+      contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
       title: Row(
         children: [
           Visibility(
@@ -53,7 +53,7 @@ class _DealTileState extends State<DealTile> {
           ),
           Visibility(
               visible: percentDiscountFormatted != '0%',
-              child: SizedBox(
+              child: const SizedBox(
                 width: 15,
               )),
           Flexible(child: Text(widget.gameDeal.title)),

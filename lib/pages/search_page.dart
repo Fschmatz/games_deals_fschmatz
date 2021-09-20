@@ -2,11 +2,13 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:games_deals_fschmatz/classes/searchedGameDeal.dart';
+import 'package:games_deals_fschmatz/classes/searched_game_deal.dart';
 import 'package:games_deals_fschmatz/widgets/searchedDealTile.dart';
 import 'package:http/http.dart' as http;
 
 class SearchPage extends StatefulWidget {
+  const SearchPage({Key? key}) : super(key: key);
+
   @override
   _SearchPageState createState() => _SearchPageState();
 }
@@ -16,9 +18,9 @@ class _SearchPageState extends State<SearchPage> {
   TextEditingController controllerGameName = TextEditingController();
   bool _loadingSearch = false;
   TextStyle styleButtonsLang =
-      TextStyle(fontSize: 14, fontWeight: FontWeight.w700);
+  const TextStyle(fontSize: 14, fontWeight: FontWeight.w700);
 
-  String _selectedStore = '25';
+  final String _selectedStore = '25';
   String _urlApi = '';
 
   Future<void> _searchGame(String name) async {
@@ -47,18 +49,18 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text('Search Game'),
+        title: const Text('Search Game'),
         bottom: PreferredSize(
-            preferredSize: Size(double.infinity, 3),
+            preferredSize: const Size(double.infinity, 3),
             child: _loadingSearch
                 ? LinearProgressIndicator(
                     minHeight: 3,
-                    valueColor: new AlwaysStoppedAnimation<Color>(
+                    valueColor: AlwaysStoppedAnimation<Color>(
                         Theme.of(context).accentColor.withOpacity(0.8)),
                     backgroundColor:
                         Theme.of(context).accentColor.withOpacity(0.3),
                   )
-                : SizedBox(
+                : const SizedBox(
                     height: 3,
                   )),
       ),
@@ -71,7 +73,7 @@ class _SearchPageState extends State<SearchPage> {
                 textCapitalization: TextCapitalization.sentences,
                 controller: controllerGameName,
                 autofocus: true,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 17,
                 ),
                 decoration: InputDecoration(
@@ -90,10 +92,10 @@ class _SearchPageState extends State<SearchPage> {
               child: Column(
                 children: [
                   _loadingSearch
-                      ? SizedBox.shrink()
+                      ? const SizedBox.shrink()
                       : ListView.separated(
                           //physics: AlwaysScrollableScrollPhysics(),
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           separatorBuilder: (context, index) => const Divider(
                                 height: 0,
                               ),

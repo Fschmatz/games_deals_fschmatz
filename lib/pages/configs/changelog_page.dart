@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:games_deals_fschmatz/util/changelog.dart';
 
 class ChangelogPage extends StatelessWidget {
+  const ChangelogPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,12 +11,12 @@ class ChangelogPage extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Changelog"),
+          title: const Text("Changelog"),
           elevation: 0,
         ),
         body: ListView(children: <Widget>[
           ListTile(
-              leading: SizedBox(
+              leading: const SizedBox(
                 height: 0.1,
               ),
               title: Text("Current Version".toUpperCase(),
@@ -24,17 +25,17 @@ class ChangelogPage extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                       color: themeColorText))),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.article_outlined,
             ),
             title: Text(
               Changelog.changelogCurrent,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
           ),
-          Divider(),
+          const Divider(),
           ListTile(
-            leading: SizedBox(
+            leading: const SizedBox(
               height: 0.1,
             ),
             title: Text("Previous Versions".toUpperCase(),
@@ -44,12 +45,12 @@ class ChangelogPage extends StatelessWidget {
                     color: themeColorText)),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.article_outlined,
             ),
             title: Text(
               Changelog.changelogsOld,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
           ),
         ]));

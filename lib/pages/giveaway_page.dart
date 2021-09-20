@@ -1,22 +1,22 @@
 import 'dart:convert';
 import 'package:games_deals_fschmatz/classes/giveaway.dart';
-import 'package:games_deals_fschmatz/util/storeIcons.dart';
-import 'package:games_deals_fschmatz/widgets/giveawayTile.dart';
+import 'package:games_deals_fschmatz/util/store_icons.dart';
+import 'package:games_deals_fschmatz/widgets/giveaway_tile.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
 class GiveawayPage extends StatefulWidget {
-  GiveawayPage({required Key key}) : super(key: key);
+  const GiveawayPage({required Key key}) : super(key: key);
 
   @override
   _GiveawayPageState createState() => _GiveawayPageState();
 }
 
 class _GiveawayPageState extends State<GiveawayPage> {
-
   bool loading = true;
   List<Giveaway> giveawayList = [];
-  String urlJson = 'https://www.gamerpower.com/api/filter?platform=epic-games-store.steam.origin.gog';
+  String urlJson =
+      'https://www.gamerpower.com/api/filter?platform=epic-games-store.steam.origin.gog';
 
   @override
   void initState() {
@@ -55,7 +55,7 @@ class _GiveawayPageState extends State<GiveawayPage> {
           ),
         ),
         ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: giveawayList.length,
             itemBuilder: (context, index) {
@@ -70,23 +70,26 @@ class _GiveawayPageState extends State<GiveawayPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: loading
-            ? Center(
-                child: CircularProgressIndicator(
-                  color: Theme.of(context).accentColor,
-                ),
+        body: AnimatedSwitcher(
+      duration: const Duration(milliseconds: 600),
+      child: loading
+          ? Center(
+              child: CircularProgressIndicator(
+                color: Theme.of(context).accentColor,
+              ),
+            )
+          : ListView(physics: const AlwaysScrollableScrollPhysics(), children: [
+              separatedList('Epic', StoreIcons.epic, context),
+              const Divider(),
+              separatedList('GOG', StoreIcons.gogv3, context),
+              const Divider(),
+              separatedList('Origin', StoreIcons.origin, context),
+              const Divider(),
+              separatedList('Steam', StoreIcons.steam, context),
+              const SizedBox(
+                height: 50,
               )
-            : ListView(physics: AlwaysScrollableScrollPhysics(), children: [
-                separatedList('Epic', StoreIcons.epic, context),
-                const Divider(),
-                separatedList('GOG', StoreIcons.gogv3, context),
-                const Divider(),
-                separatedList('Origin', StoreIcons.origin, context),
-                const Divider(),
-                separatedList('Steam', StoreIcons.steam, context),
-                const SizedBox(
-                  height: 50,
-                )
-              ]));
+            ]),
+    ));
   }
 }

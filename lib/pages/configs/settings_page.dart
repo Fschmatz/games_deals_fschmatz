@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:games_deals_fschmatz/util/changelog.dart';
 import 'package:games_deals_fschmatz/util/theme.dart';
 import 'package:provider/provider.dart';
-import 'appInfoPage.dart';
-import 'changelogPage.dart';
+import 'app_info_page.dart';
+import 'changelog_page.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
   _SettingsPageState createState() => _SettingsPageState();
 
-  SettingsPage({Key? key}) : super(key: key);
+  const SettingsPage({Key? key}) : super(key: key);
 }
 
 class _SettingsPageState extends State<SettingsPage> {
@@ -33,7 +33,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Settings"),
+          title: const Text("Settings"),
           elevation: 0,
         ),
         body: ListView(
@@ -42,20 +42,20 @@ class _SettingsPageState extends State<SettingsPage> {
               elevation: 1,
               margin: const EdgeInsets.fromLTRB(16, 20, 16, 10),
               color: Theme.of(context).accentColor.withOpacity(0.8),
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: ListTile(
                 title: Text(
                   Changelog.appName + " " + Changelog.appVersion,
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 17.5),
+                  style: const TextStyle(fontSize: 17.5),
                 ),
               ),
             ),
             const Divider(),
             ListTile(
-              leading: SizedBox(
+              leading: const SizedBox(
                 height: 0.1,
               ),
               title: Text("About".toUpperCase(),
@@ -65,10 +65,10 @@ class _SettingsPageState extends State<SettingsPage> {
                       color: themeColorText)),
             ),
             ListTile(
-              leading: Icon(
+              leading: const Icon(
                 Icons.info_outline,
               ),
-              title: Text(
+              title: const Text(
                 "App Info",
                 style: TextStyle(fontSize: 16),
               ),
@@ -76,7 +76,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute<void>(
-                      builder: (BuildContext context) => AppInfoPage(),
+                      builder: (BuildContext context) => const AppInfoPage(),
                       fullscreenDialog: true,
                     ));
               },
@@ -85,10 +85,10 @@ class _SettingsPageState extends State<SettingsPage> {
               height: 10.0,
             ),
             ListTile(
-              leading: Icon(
+              leading: const Icon(
                 Icons.article_outlined,
               ),
-              title: Text(
+              title: const Text(
                 "Changelog",
                 style: TextStyle(fontSize: 16),
               ),
@@ -96,14 +96,14 @@ class _SettingsPageState extends State<SettingsPage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute<void>(
-                      builder: (BuildContext context) => ChangelogPage(),
+                      builder: (BuildContext context) => const ChangelogPage(),
                       fullscreenDialog: true,
                     ));
               },
             ),
             ListTile(
               contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-              leading: Icon(
+              leading: const Icon(
                 Icons.report_problem_outlined,
               ),
               title: Text(
@@ -114,7 +114,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             const Divider(),
             ListTile(
-              leading: SizedBox(
+              leading: const SizedBox(
                 height: 0.1,
               ),
               title: Text("General".toUpperCase(),
@@ -125,7 +125,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             Consumer<ThemeNotifier>(
               builder: (context, notifier, child) => SwitchListTile(
-                  title: Text(
+                  title: const Text(
                     "Dark Theme",
                     style: TextStyle(fontSize: 16),
                   ),

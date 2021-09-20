@@ -25,9 +25,9 @@ class _GiveawayTileState extends State<GiveawayTile> {
       onTap: () {
         _launchlink();
       },
-      contentPadding: EdgeInsets.fromLTRB(16, 10, 16, 10),
+      contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
       title: Text(widget.giveaway.title),
-      trailing:Container(
+      trailing:SizedBox(
         width: 55,
         child: TextButton(
           onPressed: () {
