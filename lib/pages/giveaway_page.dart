@@ -70,26 +70,35 @@ class _GiveawayPageState extends State<GiveawayPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: AnimatedSwitcher(
-      duration: const Duration(milliseconds: 600),
-      child: loading
-          ? Center(
-              child: CircularProgressIndicator(
-                color: Theme.of(context).accentColor,
-              ),
-            )
-          : ListView(physics: const AlwaysScrollableScrollPhysics(), children: [
-              separatedList('Epic', StoreIcons.epic, context),
-              const Divider(),
-              separatedList('GOG', StoreIcons.gogv3, context),
-              const Divider(),
-              separatedList('Origin', StoreIcons.origin, context),
-              const Divider(),
-              separatedList('Steam', StoreIcons.steam, context),
-              const SizedBox(
-                height: 50,
+        body: RefreshIndicator(
+      onRefresh: loadJsonData,
+      color: Theme.of(context).accentColor,
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 600),
+        child: loading
+            ? Center(
+                child: CircularProgressIndicator(
+                  color: Theme.of(context).accentColor,
+                ),
               )
-            ]),
+            : ListView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                children: [
+                    separatedList('Epic', StoreIcons.epic, context),
+                    const Divider(),
+                    separatedList('Origin', StoreIcons.origin, context),
+                    const Divider(),
+                    separatedList('Steam', StoreIcons.steam, context),
+                    const Divider(),
+                    separatedList('GOG', StoreIcons.gogv3, context),
+                    const SizedBox(
+                      height: 50,
+                    )
+                  ]),
+      ),
     ));
   }
 }
+
+//GOG always gives it, remove?
+//!giveawayList[index].title.contains('The Witcher: Enhanced Edition'

@@ -1,10 +1,11 @@
 class Changelog{
 
-  static String appVersion = "1.4.0";
+  static String appVersion = "1.4.1";
   static String appName = "Games Deals Fschmatz";
 
   static String changelogCurrent = '''
-1.4.0
+1.4.1
+- Swipe Down to Refresh
 - Animated Switcher
 - Lints
 ''';

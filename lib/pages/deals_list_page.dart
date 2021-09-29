@@ -45,29 +45,35 @@ class _DealsListPageState extends State<DealsListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: AnimatedSwitcher(
-      duration: const Duration(milliseconds: 600),
-      child: loading
-          ? Center(
-              child: CircularProgressIndicator(
-                color: Theme.of(context).accentColor,
-              ),
-            )
-          : ListView(physics: const AlwaysScrollableScrollPhysics(), children: [
-              ListView.separated(
-                  physics: const NeverScrollableScrollPhysics(),
-                  separatorBuilder: (context, index) => const Divider(
-                        height: 0,
-                      ),
-                  shrinkWrap: true,
-                  itemCount: gamesDealsList.length,
-                  itemBuilder: (context, index) {
-                    return DealTile(gameDeal: gamesDealsList[index]);
-                  }),
-              const SizedBox(
-                height: 50,
+        body: RefreshIndicator(
+      onRefresh: loadJsonData,
+      color: Theme.of(context).accentColor,
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 600),
+        child: loading
+            ? Center(
+                child: CircularProgressIndicator(
+                  color: Theme.of(context).accentColor,
+                ),
               )
-            ]),
+            : ListView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                children: [
+                    ListView.separated(
+                        physics: const NeverScrollableScrollPhysics(),
+                        separatorBuilder: (context, index) => const Divider(
+                              height: 0,
+                            ),
+                        shrinkWrap: true,
+                        itemCount: gamesDealsList.length,
+                        itemBuilder: (context, index) {
+                          return DealTile(gameDeal: gamesDealsList[index]);
+                        }),
+                    const SizedBox(
+                      height: 50,
+                    )
+                  ]),
+      ),
     ));
   }
 }

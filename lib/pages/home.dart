@@ -30,15 +30,15 @@ class _HomeState extends State<Home> {
     ),
     DealsListPage(
       key: UniqueKey(),
-      currentStore: 7,
-    ),
-    DealsListPage(
-      key: UniqueKey(),
       currentStore: 8,
     ),
     DealsListPage(
       key: UniqueKey(),
       currentStore: 1,
+    ),
+    DealsListPage(
+      key: UniqueKey(),
+      currentStore: 7,
     ),
   ];
 
@@ -100,7 +100,8 @@ class _HomeState extends State<Home> {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
             child: GNav(
               rippleColor: Theme.of(context).accentColor.withOpacity(0.4),
               hoverColor: Theme.of(context).accentColor.withOpacity(0.4),
@@ -129,12 +130,6 @@ class _HomeState extends State<Home> {
                   textStyle: styleFontNavBar,
                 ),
                 GButton(
-                  icon: StoreIcons.gogv3,
-                  iconSize: 23,
-                  text: 'GOG',
-                  textStyle: styleFontNavBar,
-                ),
-                GButton(
                   icon: StoreIcons.origin,
                   text: 'Origin',
                   textStyle: styleFontNavBar,
@@ -142,6 +137,12 @@ class _HomeState extends State<Home> {
                 GButton(
                   icon: StoreIcons.steam,
                   text: 'Steam',
+                  textStyle: styleFontNavBar,
+                ),
+                GButton(
+                  icon: StoreIcons.gogv3,
+                  iconSize: 23,
+                  text: 'GOG',
                   textStyle: styleFontNavBar,
                 ),
               ],
