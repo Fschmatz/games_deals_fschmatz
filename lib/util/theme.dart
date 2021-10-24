@@ -64,7 +64,7 @@ ThemeData dark = ThemeData(
     accentColor: const Color(0xFFB17FBF),
     scaffoldBackgroundColor: const Color(0xFF202124),
     cardTheme: const CardTheme(
-      color: Color(0xFF2B2C2F),
+      color: Color(0xFF303134),
     ),
     appBarTheme: const AppBarTheme(
         color: Color(0xFF202124),

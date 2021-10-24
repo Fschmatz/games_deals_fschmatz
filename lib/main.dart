@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:games_deals_fschmatz/pages/home.dart';
 import 'package:games_deals_fschmatz/util/theme.dart';
 import 'package:provider/provider.dart';
+
+import 'app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,7 +13,7 @@ Future<void> main() async {
       builder:(context, ThemeNotifier notifier, child){
         return MaterialApp(
           theme: notifier.darkTheme ? dark : light,
-          home: const Home(),
+          home: const App(),
         );
       },
     ),
