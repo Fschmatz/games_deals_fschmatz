@@ -1,3 +1,4 @@
-# games_deals_fschmatz
+# Games Deals Fschmatz
 
+Price Tracker
 Flutter+Dart
