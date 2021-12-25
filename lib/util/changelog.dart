@@ -1,16 +1,20 @@
 class Changelog{
 
-  static String appVersion = "1.4.2";
+  static String appVersion = "1.5.0";
   static String appName = "Games Deals Fschmatz";
 
   static String changelogCurrent = '''
+1.5.0
+- New NavBar
+- Bug Fixes
+''';
+
+  static String changelogsOld = ''' 
 1.4.2
 - Swipe Down to Refresh
 - Animated Switcher
 - Lints
-''';
 
-  static String changelogsOld = ''' 
 1.3.0
 - Added Giveaway Page
 - UI Changes

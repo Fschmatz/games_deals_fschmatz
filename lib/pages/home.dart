@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:games_deals_fschmatz/pages/giveaway_page.dart';
 import 'package:games_deals_fschmatz/pages/search_page.dart';
 import 'package:games_deals_fschmatz/pages/deals_list_page.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:games_deals_fschmatz/util/store_icons.dart';
 import 'configs/settings_page.dart';
 
@@ -44,10 +43,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle styleFontNavBar = TextStyle(
-        fontSize: 14.5,
-        fontWeight: FontWeight.w600,
-        color: Theme.of(context).accentColor);
 
     return Scaffold(
       appBar: AppBar(
@@ -57,31 +52,21 @@ class _HomeState extends State<Home> {
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
             child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.search_outlined,
-                  color: Theme.of(context)
-                      .textTheme
-                      .headline6!
-                      .color!
-                      .withOpacity(0.7),
                 ),
                 onPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute<void>(
-                        builder: (BuildContext context) => SearchPage(),
+                        builder: (BuildContext context) => const SearchPage(),
                         fullscreenDialog: true,
                       ));
                 }),
           ),
           IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.settings_outlined,
-                color: Theme.of(context)
-                    .textTheme
-                    .headline6!
-                    .color!
-                    .withOpacity(0.7),
               ),
               onPressed: () {
                 Navigator.push(
@@ -98,7 +83,53 @@ class _HomeState extends State<Home> {
         decoration: BoxDecoration(
           color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
         ),
-        child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: NavigationBar(
+            labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+            selectedIndex: _currentIndex,
+            onDestinationSelected: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+            destinations: const [
+              NavigationDestination(
+                icon: Icon(Icons.local_offer_rounded),
+                selectedIcon: Icon(Icons.local_offer_rounded,color: Colors.black87,),
+                label: 'Giveaway',
+              ),
+              NavigationDestination(
+                icon: Icon(StoreIcons.epic),
+                selectedIcon: Icon(StoreIcons.epic,color: Colors.black87,),
+                label: 'Epic',
+              ),
+              NavigationDestination(
+                icon: Icon(StoreIcons.origin),
+                selectedIcon: Icon(StoreIcons.origin,color: Colors.black87,),
+                label: 'Origin',
+              ),
+              NavigationDestination(
+                icon: Icon(StoreIcons.steam),
+                selectedIcon: Icon(StoreIcons.steam,color: Colors.black87,),
+                label: 'Steam',
+              ),
+              NavigationDestination(
+                icon: Icon(StoreIcons.gogv3,size: 23,),
+                selectedIcon: Icon(StoreIcons.gogv3,color: Colors.black87,),
+                label: 'GOG',
+              ),
+            ],
+          ),
+        ),
+      ),
+
+     /* Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+        ),
+        child:
+        SafeArea(
           child: Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
@@ -140,9 +171,7 @@ class _HomeState extends State<Home> {
                   textStyle: styleFontNavBar,
                 ),
                 GButton(
-                  icon: StoreIcons.gogv3,
-                  iconSize: 23,
-                  text: 'GOG',
+
                   textStyle: styleFontNavBar,
                 ),
               ],
@@ -155,7 +184,7 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-      ),
+      ),*/
     );
   }
 }

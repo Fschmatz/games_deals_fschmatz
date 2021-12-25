@@ -12,12 +12,11 @@ class AppInfoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color? themeColorText = Theme.of(context).accentTextTheme.headline1!.color;
+    Color? themeColorText = Theme.of(context).colorScheme.primary;
 
     return Scaffold(
         appBar: AppBar(
           title: const Text("App Info"),
-          elevation: 0,
         ),
         body: ListView(children: <Widget>[
           const SizedBox(height: 20),

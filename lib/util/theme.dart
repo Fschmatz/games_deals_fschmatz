@@ -4,21 +4,29 @@ import 'package:shared_preferences/shared_preferences.dart';
 //CLARO
 ThemeData light = ThemeData(
     brightness: Brightness.light,
-    primaryColor: const Color(0xFFFFFFFF),
-    accentColor: Colors.purple[600],
-    scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+    primaryColorBrightness: Brightness.dark,
+    primaryColor: const Color(0xFFFEFFFE),
+    accentColor: Colors.purple[400],
+    scaffoldBackgroundColor: const Color(0xFFFEFFFE),
+    colorScheme: ColorScheme.light(
+      primary:  Colors.purple[400]!,
+      primaryVariant:  Colors.purple[400]!,
+      onSecondary: const Color(0xFF050505),
+      secondary: Colors.purple[400]!,
+    ),
     appBarTheme: const AppBarTheme(
-        color: Color(0xFFFFFFFF),
+        color: Color(0xFFFEFFFE),
         elevation: 0,
+        iconTheme: IconThemeData(color: Color(0xFF050505)),
         titleTextStyle: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,
             color: Color(0xFF000000))),
     cardTheme: const CardTheme(
-      color: Color(0xFFF3F3F3),
+      color: Color(0xFFF3F4F3),
     ),
     dialogTheme: const DialogTheme(
-      backgroundColor: Color(0xFFF9F9F9),
+      backgroundColor: Color(0xFFFEFFFE),
     ),
     accentTextTheme: const TextTheme(
       headline1: TextStyle(color: Color(0xFFab3cc9)),
@@ -27,16 +35,16 @@ ThemeData light = ThemeData(
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       showSelectedLabels: false,
       showUnselectedLabels: true,
-      backgroundColor: Color(0xFFE0E0E0),
+      backgroundColor: Color(0xFFE0E1E0),
     ),
     inputDecorationTheme: InputDecorationTheme(
-        fillColor: const Color(0xFFF3F3F3),
-        focusColor: Colors.purple[600],
+        fillColor: const Color(0xFFF3F4F3),
+        focusColor: Colors.purple[400],
         contentPadding:
             const EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.purple[600]!,
+            color: Colors.purple[400]!,
           ),
           borderRadius: BorderRadius.circular(25.0),
         ),
@@ -50,25 +58,41 @@ ThemeData light = ThemeData(
               color: Colors.transparent,
             ),
             borderRadius: BorderRadius.circular(25.0))),
-    bottomAppBarColor: const Color(0xFFE0E0E0),
+    bottomAppBarColor: const Color(0xFFE0E1E0),
     popupMenuTheme: const PopupMenuThemeData(
-      color: Color(0xFFE9E9E9),
+      color: Color(0xFFE9EAE9),
     ),
     bottomSheetTheme:
-        const BottomSheetThemeData(modalBackgroundColor: Color(0xFFF3F3F3)));
+        const BottomSheetThemeData(modalBackgroundColor: Color(0xFFF3F4F3)),
+    navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: const Color(0xFFE0E1E0),
+        indicatorColor: Colors.purple[400]!,
+        iconTheme: MaterialStateProperty.all(const IconThemeData(
+          color: Color(0xFF050505),
+        )),
+        labelTextStyle: MaterialStateProperty.all(const TextStyle(
+            color: Color(0xFF050505), fontWeight: FontWeight.w500))));
 
 //ESCURO
 ThemeData dark = ThemeData(
     brightness: Brightness.dark,
+    primaryColorBrightness: Brightness.light,
     primaryColor: const Color(0xFF202124),
     accentColor: const Color(0xFFB17FBF),
     scaffoldBackgroundColor: const Color(0xFF202124),
+    colorScheme: const ColorScheme.dark(
+      primary:  Color(0xFFB17FBF),
+      primaryVariant:  Color(0xFFB17FBF),
+      onSecondary: Color(0xFFCACACA),
+      secondary: Color(0xFFB17FBF),
+    ),
     cardTheme: const CardTheme(
       color: Color(0xFF303134),
     ),
     appBarTheme: const AppBarTheme(
         color: Color(0xFF202124),
         elevation: 0,
+        iconTheme: IconThemeData(color: Color(0xFFCACACA)),
         titleTextStyle: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,
@@ -111,7 +135,15 @@ ThemeData dark = ThemeData(
             borderRadius: BorderRadius.circular(25.0))),
     bottomAppBarColor: const Color(0xFF141518),
     bottomSheetTheme:
-        const BottomSheetThemeData(modalBackgroundColor: Color(0xFF202124)));
+        const BottomSheetThemeData(modalBackgroundColor: Color(0xFF202124)),
+    navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: const Color(0xFF141518),
+        indicatorColor: const Color(0xFFB17FBF),
+        iconTheme: MaterialStateProperty.all(const IconThemeData(
+          color: Color(0xFFCACACA),
+        )),
+        labelTextStyle: MaterialStateProperty.all(const TextStyle(
+            color: Color(0xFFCACACA), fontWeight: FontWeight.w500))));
 
 class ThemeNotifier extends ChangeNotifier {
   final String key = 'valorTema';

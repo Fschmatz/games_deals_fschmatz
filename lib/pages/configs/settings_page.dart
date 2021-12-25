@@ -29,7 +29,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    Color? themeColorText = Theme.of(context).accentTextTheme.headline1!.color;
+    Color? themeColorText = Theme.of(context).colorScheme.primary;
 
     return Scaffold(
         appBar: AppBar(
@@ -41,9 +41,9 @@ class _SettingsPageState extends State<SettingsPage> {
             Card(
               elevation: 1,
               margin: const EdgeInsets.fromLTRB(16, 20, 16, 10),
-              color: Theme.of(context).accentColor.withOpacity(0.8),
+              color: Theme.of(context).colorScheme.primary,
               shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderRadius: BorderRadius.all(Radius.circular(12)),
               ),
               child: ListTile(
                 title: Text(
@@ -101,17 +101,6 @@ class _SettingsPageState extends State<SettingsPage> {
                     ));
               },
             ),
-            ListTile(
-              contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-              leading: const Icon(
-                Icons.report_problem_outlined,
-              ),
-              title: Text(
-                apologiesText,
-                style:
-                TextStyle(fontSize: 16, color: Theme.of(context).hintColor),
-              ),
-            ),
             const Divider(),
             ListTile(
               leading: const SizedBox(
@@ -129,12 +118,24 @@ class _SettingsPageState extends State<SettingsPage> {
                     "Dark Theme",
                     style: TextStyle(fontSize: 16),
                   ),
-                  secondary: Icon(Icons.brightness_6_outlined),
+                  secondary: const Icon(Icons.brightness_6_outlined),
                   activeColor: Colors.blue,
                   value: notifier.darkTheme,
                   onChanged: (value) {
                     notifier.toggleTheme();
                   }),
+            ),
+            const Divider(),
+            ListTile(
+              contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+              leading: const Icon(
+                Icons.report_problem_outlined,
+              ),
+              title: Text(
+                apologiesText,
+                style:
+                TextStyle(fontSize: 16, color: Theme.of(context).hintColor),
+              ),
             ),
           ],
         ));
