@@ -1,12 +1,13 @@
 class Changelog{
 
-  static String appVersion = "1.5.0";
+  static String appVersion = "1.5.1";
   static String appName = "Games Deals Fschmatz";
 
   static String changelogCurrent = '''
-1.5.0
+1.5.1
 - New NavBar
 - Bug Fixes
+- Hide AppBar
 ''';
 
   static String changelogsOld = ''' 

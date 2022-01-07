@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:games_deals_fschmatz/widgets/app_bar_sliver.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:games_deals_fschmatz/classes/game_deal.dart';
@@ -45,34 +46,39 @@ class _DealsListPageState extends State<DealsListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: RefreshIndicator(
-      onRefresh: loadJsonData,
-      color: Theme.of(context).accentColor,
-      child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 600),
-        child: loading
-            ? Center(
-                child: CircularProgressIndicator(
-                  color: Theme.of(context).accentColor,
-                ),
-              )
-            : ListView(
-                physics: const AlwaysScrollableScrollPhysics(),
-                children: [
-                    ListView.separated(
-                        physics: const NeverScrollableScrollPhysics(),
-                        separatorBuilder: (context, index) => const Divider(
-                              height: 0,
-                            ),
-                        shrinkWrap: true,
-                        itemCount: gamesDealsList.length,
-                        itemBuilder: (context, index) {
-                          return DealTile(gameDeal: gamesDealsList[index]);
-                        }),
-                    const SizedBox(
-                      height: 50,
-                    )
-                  ]),
+        body: NestedScrollView(
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return <Widget>[const AppBarSliver()];
+      },
+      body: RefreshIndicator(
+        onRefresh: loadJsonData,
+        color: Theme.of(context).colorScheme.primary,
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 600),
+          child: loading
+              ? Center(
+                  child: CircularProgressIndicator(
+                    color: Theme.of(context).accentColor,
+                  ),
+                )
+              : ListView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  children: [
+                      ListView.separated(
+                          physics: const NeverScrollableScrollPhysics(),
+                          separatorBuilder: (context, index) => const Divider(
+                                height: 0,
+                              ),
+                          shrinkWrap: true,
+                          itemCount: gamesDealsList.length,
+                          itemBuilder: (context, index) {
+                            return DealTile(gameDeal: gamesDealsList[index]);
+                          }),
+                      const SizedBox(
+                        height: 50,
+                      )
+                    ]),
+        ),
       ),
     ));
   }

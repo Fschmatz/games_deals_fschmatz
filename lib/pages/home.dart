@@ -45,39 +45,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Games Deals'),
-        elevation: 0,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
-            child: IconButton(
-                icon: const Icon(
-                  Icons.search_outlined,
-                ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => const SearchPage(),
-                        fullscreenDialog: true,
-                      ));
-                }),
-          ),
-          IconButton(
-              icon: const Icon(
-                Icons.settings_outlined,
-              ),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) => const SettingsPage(),
-                      fullscreenDialog: true,
-                    ));
-              }),
-        ],
-      ),
       body: SafeArea(child: _storesList[_currentIndex]),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
@@ -95,7 +62,7 @@ class _HomeState extends State<Home> {
             },
             destinations: const [
               NavigationDestination(
-                icon: Icon(Icons.local_offer_rounded),
+                icon: Icon(Icons.local_offer_outlined),
                 selectedIcon: Icon(Icons.local_offer_rounded,color: Colors.black87,),
                 label: 'Giveaway',
               ),
