@@ -87,12 +87,12 @@ ThemeData dark = ThemeData(
       secondary: Color(0xFFB17FBF),
     ),
     cardTheme: const CardTheme(
-      color: Color(0xFF303134),
+      color: Color(0xFF313134),
     ),
     appBarTheme: const AppBarTheme(
         color: Color(0xFF202124),
         elevation: 0,
-        iconTheme: IconThemeData(color: Color(0xFFCACACA)),
+        iconTheme: IconThemeData(color: Color(0xFFF5F5F5)),
         titleTextStyle: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,
@@ -140,10 +140,10 @@ ThemeData dark = ThemeData(
         backgroundColor: const Color(0xFF141518),
         indicatorColor: const Color(0xFFB17FBF),
         iconTheme: MaterialStateProperty.all(const IconThemeData(
-          color: Color(0xFFCACACA),
+          color: Color(0xFFEAEAEA),
         )),
         labelTextStyle: MaterialStateProperty.all(const TextStyle(
-            color: Color(0xFFCACACA), fontWeight: FontWeight.w500))));
+            color: Color(0xFFEAEAEA), fontWeight: FontWeight.w500))));
 
 class ThemeNotifier extends ChangeNotifier {
   final String key = 'valorTema';

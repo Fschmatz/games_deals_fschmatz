@@ -62,7 +62,7 @@ class _HomeState extends State<Home> {
             },
             destinations: const [
               NavigationDestination(
-                icon: Icon(Icons.local_offer_outlined),
+                icon: Icon(Icons.local_offer_rounded),
                 selectedIcon: Icon(Icons.local_offer_rounded,color: Colors.black87,),
                 label: 'Giveaway',
               ),
