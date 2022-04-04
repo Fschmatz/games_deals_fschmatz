@@ -58,7 +58,7 @@ class _DealsListPageState extends State<DealsListPage> {
           child: loading
               ? Center(
                   child: CircularProgressIndicator(
-                    color: Theme.of(context).accentColor,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 )
               : ListView(

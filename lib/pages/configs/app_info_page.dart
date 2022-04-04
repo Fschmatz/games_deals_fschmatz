@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:games_deals_fschmatz/util/changelog.dart';
+import 'package:games_deals_fschmatz/util/app_details.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppInfoPage extends StatelessWidget {
-  const AppInfoPage({Key? key}) : super(key: key);
+  AppInfoPage({Key? key}) : super(key: key);
+
+  String apologiesText = "Prices from CheapShark API\nGiveaways from GamerPower API";
+
+    /*  'All values are in dollars, '
+      'but the CheapShark API is free and can be used at least to track promotions.\n'
+      'For Brazil, the percentage of the discount will always be the same, but as there are changes in prices that are practiced around the world, '
+      'the final value cannot be directly converted using the dollar value.\n'
+      'The giveaway page uses the GamerPower API, the store and search pages '
+      'are using the CheapShark API.';*/
 
   _launchGithub() {
-    const url = 'https://github.com/Fschmatz/games_deals_fschmatz';
+    String url = AppDetails.repositoryLink;
     launch(url);
   }
 
@@ -30,42 +39,31 @@ class AppInfoPage extends StatelessWidget {
           ),
           const SizedBox(height: 15),
           Center(
-            child: Text(Changelog.appName + " " + Changelog.appVersion,
+            child: Text(AppDetails.appName + " " + AppDetails.appVersion,
                 style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w700,
                     color: themeColorText)),
           ),
           const SizedBox(height: 15),
-          const Divider(),
           ListTile(
-            leading: const SizedBox(
-              height: 0.1,
-            ),
-            title: Text("Dev".toUpperCase(),
+            title: Text("Dev",
                 style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
                     color: themeColorText)),
           ),
           const ListTile(
             leading: Icon(Icons.info_outline),
             title: Text(
               "Application created using Flutter and the Dart language, used for testing and learning.",
-              style: TextStyle(
-                fontSize: 16,
-              ),
             ),
           ),
-          const Divider(),
           ListTile(
-            leading: const SizedBox(
-              height: 0.1,
-            ),
-            title: Text("Source Code".toUpperCase(),
+            title: Text("Source Code",
                 style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
                     color: themeColorText)),
           ),
           ListTile(
@@ -77,24 +75,35 @@ class AppInfoPage extends StatelessWidget {
                 style: TextStyle(
                     decoration: TextDecoration.underline, color: Colors.blue)),
           ),
-          const Divider(),
           ListTile(
-            leading: const SizedBox(
-              height: 0.1,
-            ),
-            title: Text("Quote".toUpperCase(),
+            title: Text("Quote",
                 style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
                     color: themeColorText)),
           ),
           const ListTile(
             leading: Icon(Icons.messenger_outline),
             title: Text(
               "Man’s mind, once stretched by a new idea, never regains its original dimensions.",
-              style: TextStyle(fontSize: 16),
             ),
           ),
+          ListTile(
+            title: Text("API Info",
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: themeColorText)),
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.report_problem_outlined,
+            ),
+            title: Text(
+              apologiesText,
+            ),
+          ),
+          const SizedBox(height: 30),
         ]));
   }
 }

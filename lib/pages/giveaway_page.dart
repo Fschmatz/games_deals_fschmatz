@@ -41,17 +41,17 @@ class _GiveawayPageState extends State<GiveawayPage> {
   Widget separatedList(
       String shopName, IconData iconLoja, BuildContext context) {
     TextStyle titleStyle = TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.w700,
-        color: Theme.of(context).accentTextTheme.headline1!.color);
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: Theme.of(context).colorScheme.primary);
 
     return Column(
       children: [
         ListTile(
           leading: Icon(iconLoja,
-              color: Theme.of(context).accentTextTheme.headline1!.color),
+              color: Theme.of(context).colorScheme.primary),
           title: Text(
-            shopName.toUpperCase(),
+            shopName,
             style: titleStyle,
           ),
         ),
@@ -77,13 +77,13 @@ class _GiveawayPageState extends State<GiveawayPage> {
       },
       body: RefreshIndicator(
         onRefresh: loadJsonData,
-        color: Theme.of(context).accentColor,
+        color: Theme.of(context).colorScheme.primary,
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 600),
           child: loading
               ? Center(
                   child: CircularProgressIndicator(
-                    color: Theme.of(context).accentColor,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 )
               : ListView(

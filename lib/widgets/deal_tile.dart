@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:games_deals_fschmatz/classes/game_deal.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:share/share.dart';
 
 class DealTile extends StatefulWidget {
   GameDeal gameDeal;
@@ -24,8 +25,8 @@ class _DealTileState extends State<DealTile> {
   Widget build(BuildContext context) {
     TextStyle detailsStyle = TextStyle(
         fontSize: 14,
-        fontWeight: FontWeight.w600,
-        color: Theme.of(context).accentTextTheme.headline1!.color);
+        fontWeight: FontWeight.w400,
+        color: Theme.of(context).colorScheme.primary);
 
     String percentDiscountFormatted = double.parse(widget.gameDeal.savings)
             .roundToDouble()
@@ -37,6 +38,9 @@ class _DealTileState extends State<DealTile> {
       onTap: () {
         _launchlink();
       },
+      onLongPress: () {
+        Share.share(urlOpenLinks + widget.gameDeal.dealID);
+      },
       contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
       title: Row(
         children: [
@@ -44,7 +48,7 @@ class _DealTileState extends State<DealTile> {
             visible: percentDiscountFormatted != '0%',
             child: CircleAvatar(
                 radius: 22,
-                backgroundColor: Theme.of(context).accentColor.withOpacity(0.3),
+                backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
                 child: Text(
                   percentDiscountFormatted,
                   textAlign: TextAlign.center,

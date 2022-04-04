@@ -90,68 +90,6 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
-
-     /* Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-        ),
-        child:
-        SafeArea(
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-            child: GNav(
-              rippleColor: Theme.of(context).accentColor.withOpacity(0.4),
-              hoverColor: Theme.of(context).accentColor.withOpacity(0.4),
-              color: Theme.of(context)
-                  .textTheme
-                  .headline6!
-                  .color!
-                  .withOpacity(0.7),
-              gap: 10,
-              activeColor: Theme.of(context).accentColor,
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-              duration: const Duration(milliseconds: 500),
-              tabBackgroundColor:
-                  Theme.of(context).accentColor.withOpacity(0.3),
-              backgroundColor:
-                  Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
-              tabs: [
-                GButton(
-                  icon: Icons.local_offer_rounded,
-                  text: 'Giveaway',
-                  textStyle: styleFontNavBar,
-                ),
-                GButton(
-                  icon: StoreIcons.epic,
-                  text: 'Epic',
-                  textStyle: styleFontNavBar,
-                ),
-                GButton(
-                  icon: StoreIcons.origin,
-                  text: 'Origin',
-                  textStyle: styleFontNavBar,
-                ),
-                GButton(
-                  icon: StoreIcons.steam,
-                  text: 'Steam',
-                  textStyle: styleFontNavBar,
-                ),
-                GButton(
-
-                  textStyle: styleFontNavBar,
-                ),
-              ],
-              selectedIndex: _currentIndex,
-              onTabChange: (index) {
-                setState(() {
-                  _currentIndex = index;
-                });
-              },
-            ),
-          ),
-        ),
-      ),*/
     );
   }
 }

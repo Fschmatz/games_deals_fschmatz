@@ -44,7 +44,7 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    Color? textAccent = Theme.of(context).accentTextTheme.headline1!.color;
+    Color? textAccent = Theme.of(context).colorScheme.primary;
 
     return Scaffold(
       appBar: AppBar(
@@ -56,9 +56,9 @@ class _SearchPageState extends State<SearchPage> {
                 ? LinearProgressIndicator(
                     minHeight: 3,
                     valueColor: AlwaysStoppedAnimation<Color>(
-                        Theme.of(context).accentColor.withOpacity(0.8)),
+                        Theme.of(context).colorScheme.primary.withOpacity(0.8)),
                     backgroundColor:
-                        Theme.of(context).accentColor.withOpacity(0.3),
+                        Theme.of(context).colorScheme.primary.withOpacity(0.3),
                   )
                 : const SizedBox(
                     height: 3,
@@ -73,9 +73,6 @@ class _SearchPageState extends State<SearchPage> {
                 textCapitalization: TextCapitalization.sentences,
                 controller: controllerGameName,
                 autofocus: true,
-                style: const TextStyle(
-                  fontSize: 17,
-                ),
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.videogame_asset_outlined,color: textAccent ),
                   filled: true,

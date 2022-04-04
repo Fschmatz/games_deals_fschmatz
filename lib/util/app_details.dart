@@ -1,16 +1,22 @@
-class Changelog{
+class AppDetails{
 
-  static String appVersion = "1.5.1";
+  static String appVersion = "1.6.0";
   static String appName = "Games Deals Fschmatz";
+  static String repositoryLink = "https://github.com/Fschmatz/games_deals_fschmatz";
 
   static String changelogCurrent = '''
+1.6.0
+- Added System Theme
+- UI Changes
+- Bug Fixes
+''';
+
+  static String changelogsOld = ''' 
 1.5.1
 - New NavBar
 - Bug Fixes
 - Hide AppBar
-''';
 
-  static String changelogsOld = ''' 
 1.4.2
 - Swipe Down to Refresh
 - Animated Switcher
