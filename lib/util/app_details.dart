@@ -1,11 +1,11 @@
 class AppDetails{
 
-  static String appVersion = "1.6.0";
+  static String appVersion = "1.6.1";
   static String appName = "Games Deals Fschmatz";
   static String repositoryLink = "https://github.com/Fschmatz/games_deals_fschmatz";
 
   static String changelogCurrent = '''
-1.6.0
+1.6.1
 - Added System Theme
 - UI Changes
 - Bug Fixes

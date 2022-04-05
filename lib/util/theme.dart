@@ -74,9 +74,10 @@ ThemeData dark = ThemeData(
     primaryColor: const Color(0xFF202124),
     scaffoldBackgroundColor: const Color(0xFF202124),
     colorScheme: const ColorScheme.dark(
-      primary:  Color(0xFFDB9EEC),
+      primary:  Color(0xFFF2AFFF),
+      onPrimary: Color(0xFF4D155F),
       onSecondary: Color(0xFFCACACA),
-      secondary: Color(0xFFDB9EEC),
+      secondary: Color(0xFFF2AFFF),
     ),
     cardTheme: const CardTheme(
       color: Color(0xFF303136),
@@ -105,12 +106,12 @@ ThemeData dark = ThemeData(
     ),
     inputDecorationTheme: InputDecorationTheme(
         fillColor: const Color(0xFF2B2C2F),
-        focusColor: const Color(0xFFDB9EEC),
+        focusColor: const Color(0xFFF2AFFF),
         contentPadding:
             const EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: Color(0xFFDB9EEC),
+            color: Color(0xFFF2AFFF),
           ),
           borderRadius: BorderRadius.circular(12.0),
         ),
@@ -129,7 +130,7 @@ ThemeData dark = ThemeData(
         const BottomSheetThemeData(modalBackgroundColor: Color(0xFF202124)),
     navigationBarTheme: NavigationBarThemeData(
         backgroundColor: const Color(0xFF27282C),
-        indicatorColor: const Color(0xFFB792C2),
+        indicatorColor: const Color(0xFFC298CE),
         iconTheme: MaterialStateProperty.all(const IconThemeData(
           color: Color(0xFFEAEAEA),
         )),

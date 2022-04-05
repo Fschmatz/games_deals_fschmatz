@@ -19,10 +19,40 @@ class _GiveawayPageState extends State<GiveawayPage> {
   String urlJson =
       'https://www.gamerpower.com/api/filter?platform=epic-games-store.steam.origin.gog';
 
+  List<Giveaway> epicList = [];
+  List<Giveaway> originList = [];
+  List<Giveaway> steamList = [];
+  List<Giveaway> gogList = [];
+
   @override
   void initState() {
-    loadJsonData();
+    giveawayFunctions();
     super.initState();
+  }
+
+  void giveawayFunctions() async {
+    await loadJsonData();
+    await filterLists();
+  }
+
+  Future<void> filterLists() async {
+    epicList = giveawayList.where((o) => o.platforms.contains('Epic')).toList();
+
+    originList =
+        giveawayList.where((o) => o.platforms.contains('Origin')).toList();
+
+    steamList =
+        giveawayList.where((o) => o.platforms.contains('Steam')).toList();
+
+    gogList = giveawayList.where((o) => o.platforms.contains('GOG')).toList();
+
+    setState(() {
+      loading = false;
+      epicList;
+      originList;
+      steamList;
+      gogList;
+    });
   }
 
   Future<void> loadJsonData() async {
@@ -31,38 +61,32 @@ class _GiveawayPageState extends State<GiveawayPage> {
       Iterable l = json.decode(response.body);
       List<Giveaway> listJson =
           List<Giveaway>.from(l.map((model) => Giveaway.fromJson(model)));
-      setState(() {
-        loading = false;
-        giveawayList = listJson;
-      });
+      giveawayList = listJson;
     }
   }
 
-  Widget separatedList(
-      String shopName, IconData iconLoja, BuildContext context) {
+  Widget separatedList(List<Giveaway> list, String storeName, IconData storeIcon,
+      BuildContext context) {
     TextStyle titleStyle = TextStyle(
         fontSize: 16,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w500,
         color: Theme.of(context).colorScheme.primary);
 
     return Column(
       children: [
         ListTile(
-          leading: Icon(iconLoja,
-              color: Theme.of(context).colorScheme.primary),
+          leading: Icon(storeIcon, color: Theme.of(context).colorScheme.primary),
           title: Text(
-            shopName,
+            storeName,
             style: titleStyle,
           ),
         ),
         ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: giveawayList.length,
+            itemCount: list.length,
             itemBuilder: (context, index) {
-              return Visibility(
-                  visible: giveawayList[index].platforms.contains(shopName),
-                  child: GiveawayTile(giveaway: giveawayList[index]));
+              return GiveawayTile(giveaway: giveawayList[index]);
             }),
       ],
     );
@@ -89,13 +113,24 @@ class _GiveawayPageState extends State<GiveawayPage> {
               : ListView(
                   physics: const AlwaysScrollableScrollPhysics(),
                   children: [
-                      separatedList('Epic', StoreIcons.epic, context),
-                      const Divider(),
-                      separatedList('Origin', StoreIcons.origin, context),
-                      const Divider(),
-                      separatedList('Steam', StoreIcons.steam, context),
-                      const Divider(),
-                      separatedList('GOG', StoreIcons.gogv3, context),
+                      Visibility(
+                        visible: epicList.isNotEmpty,
+                        child: separatedList(
+                            epicList, 'Epic', StoreIcons.epic, context),
+                      ),
+                      Visibility(
+                        visible: originList.isNotEmpty,
+                        child: separatedList(
+                            originList, 'Origin', StoreIcons.origin, context),
+                      ),
+                      Visibility(
+                          visible: steamList.isNotEmpty,
+                          child: separatedList(
+                              steamList, 'Steam', StoreIcons.steam, context)),
+                      Visibility(
+                          visible: gogList.isNotEmpty,
+                          child: separatedList(
+                              gogList, 'GOG', StoreIcons.gogv3, context)),
                       const SizedBox(
                         height: 50,
                       )
@@ -105,6 +140,3 @@ class _GiveawayPageState extends State<GiveawayPage> {
     ));
   }
 }
-
-//GOG always gives it, remove?
-//!giveawayList[index].title.contains('The Witcher: Enhanced Edition'
