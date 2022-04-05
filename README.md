@@ -2,4 +2,4 @@
 
 Price Tracker created with Flutter+Dart
 
-<img src="https://user-images.githubusercontent.com/21291813/151476011-1ffa8103-f5b6-4dda-9d0c-ab483385441f.png" width="30%"></img> 
+<img src="https://user-images.githubusercontent.com/21291813/161866455-8aa59fc9-7e3f-48c5-9310-bf8ffaadc5d4.png" width="30%"></img> 
