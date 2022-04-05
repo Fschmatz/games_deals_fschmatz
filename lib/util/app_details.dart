@@ -7,6 +7,7 @@ class AppDetails{
   static String changelogCurrent = '''
 1.6.1
 - Added System Theme
+- Hold to Share
 - UI Changes
 - Bug Fixes
 ''';

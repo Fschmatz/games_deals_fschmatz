@@ -74,7 +74,7 @@ class _SearchPageState extends State<SearchPage> {
                 controller: controllerGameName,
                 autofocus: true,
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.videogame_asset_outlined,color: textAccent ),
+                  prefixIcon: Icon(Icons.search_outlined,color: textAccent ),
                   filled: true,
                 ),
                 onEditingComplete: () {

@@ -30,7 +30,7 @@ class _GiveawayPageState extends State<GiveawayPage> {
     super.initState();
   }
 
-  void giveawayFunctions() async {
+  Future<void> giveawayFunctions() async {
     await loadJsonData();
     await filterLists();
   }
@@ -47,11 +47,11 @@ class _GiveawayPageState extends State<GiveawayPage> {
     gogList = giveawayList.where((o) => o.platforms.contains('GOG')).toList();
 
     setState(() {
-      loading = false;
       epicList;
       originList;
       steamList;
       gogList;
+      loading = false;
     });
   }
 
@@ -69,7 +69,7 @@ class _GiveawayPageState extends State<GiveawayPage> {
       BuildContext context) {
     TextStyle titleStyle = TextStyle(
         fontSize: 16,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w400,
         color: Theme.of(context).colorScheme.primary);
 
     return Column(
@@ -100,7 +100,7 @@ class _GiveawayPageState extends State<GiveawayPage> {
         return <Widget>[const AppBarSliver()];
       },
       body: RefreshIndicator(
-        onRefresh: loadJsonData,
+        onRefresh: giveawayFunctions,
         color: Theme.of(context).colorScheme.primary,
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 600),

@@ -30,10 +30,10 @@ ThemeData light = ThemeData(
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       showSelectedLabels: false,
       showUnselectedLabels: true,
-      backgroundColor: Color(0xFFE0E1E0),
+      backgroundColor: Color(0xFFE9E8E9),
     ),
     inputDecorationTheme: InputDecorationTheme(
-        fillColor: const Color(0xFFF3F4F3),
+        fillColor: const Color(0xFFF4F3F4),
         focusColor: Colors.purple.shade300,
         contentPadding:
             const EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),
@@ -53,14 +53,14 @@ ThemeData light = ThemeData(
               color: Colors.transparent,
             ),
             borderRadius: BorderRadius.circular(12.0))),
-    bottomAppBarColor: const Color(0xFFE0E1E0),
+    bottomAppBarColor: const Color(0xFFE9E8E9),
     popupMenuTheme: const PopupMenuThemeData(
       color: Color(0xFFE9EAE9),
     ),
     bottomSheetTheme:
         const BottomSheetThemeData(modalBackgroundColor: Color(0xFFF3F4F3)),
     navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: const Color(0xFFE0E1E0),
+        backgroundColor: const Color(0xFFE9E8E9),
         indicatorColor: Colors.purple.shade300,
         iconTheme: MaterialStateProperty.all(const IconThemeData(
           color: Color(0xFF050505),
@@ -74,10 +74,10 @@ ThemeData dark = ThemeData(
     primaryColor: const Color(0xFF202124),
     scaffoldBackgroundColor: const Color(0xFF202124),
     colorScheme: const ColorScheme.dark(
-      primary:  Color(0xFFF2AFFF),
+      primary:  Color(0xFFEFADFC),
       onPrimary: Color(0xFF4D155F),
       onSecondary: Color(0xFFCACACA),
-      secondary: Color(0xFFF2AFFF),
+      secondary: Color(0xFFEFADFC),
     ),
     cardTheme: const CardTheme(
       color: Color(0xFF303136),
@@ -102,16 +102,16 @@ ThemeData dark = ThemeData(
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       showSelectedLabels: true,
       showUnselectedLabels: true,
-      backgroundColor: Color(0xFF27282C),
+      backgroundColor: Color(0xFF292A2F),
     ),
     inputDecorationTheme: InputDecorationTheme(
-        fillColor: const Color(0xFF2B2C2F),
-        focusColor: const Color(0xFFF2AFFF),
+        fillColor: const Color(0xFF292A2F),
+        focusColor: const Color(0xFFEFADFC),
         contentPadding:
             const EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: Color(0xFFF2AFFF),
+            color: Color(0xFFEFADFC),
           ),
           borderRadius: BorderRadius.circular(12.0),
         ),
@@ -125,11 +125,11 @@ ThemeData dark = ThemeData(
               color: Colors.transparent,
             ),
             borderRadius: BorderRadius.circular(12.0))),
-    bottomAppBarColor: const Color(0xFF27282C),
+    bottomAppBarColor: const Color(0xFF292A2F),
     bottomSheetTheme:
         const BottomSheetThemeData(modalBackgroundColor: Color(0xFF202124)),
     navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: const Color(0xFF27282C),
+        backgroundColor: const Color(0xFF292A2F),
         indicatorColor: const Color(0xFFC298CE),
         iconTheme: MaterialStateProperty.all(const IconThemeData(
           color: Color(0xFFEAEAEA),

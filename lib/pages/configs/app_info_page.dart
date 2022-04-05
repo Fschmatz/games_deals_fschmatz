@@ -41,7 +41,7 @@ class AppInfoPage extends StatelessWidget {
           Center(
             child: Text(AppDetails.appName + " " + AppDetails.appVersion,
                 style: TextStyle(
-                    fontSize: 17,
+                    fontSize: 16,
                     fontWeight: FontWeight.w700,
                     color: themeColorText)),
           ),
@@ -56,7 +56,7 @@ class AppInfoPage extends StatelessWidget {
           const ListTile(
             leading: Icon(Icons.info_outline),
             title: Text(
-              "Application created using Flutter and the Dart language, used for testing and learning.",
+              "Application created using Flutter and the Dart language.",
             ),
           ),
           ListTile(
@@ -97,7 +97,7 @@ class AppInfoPage extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(
-              Icons.report_problem_outlined,
+              Icons.integration_instructions_outlined,
             ),
             title: Text(
               apologiesText,
