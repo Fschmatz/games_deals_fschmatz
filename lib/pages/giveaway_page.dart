@@ -65,7 +65,7 @@ class _GiveawayPageState extends State<GiveawayPage> {
     }
   }
 
-  Widget separatedList(List<Giveaway> list, String storeName, IconData storeIcon,
+  Widget separatedList(List<Giveaway> filteredList, String storeName, IconData storeIcon,
       BuildContext context) {
     TextStyle titleStyle = TextStyle(
         fontSize: 16,
@@ -84,9 +84,9 @@ class _GiveawayPageState extends State<GiveawayPage> {
         ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: list.length,
+            itemCount: filteredList.length,
             itemBuilder: (context, index) {
-              return GiveawayTile(giveaway: giveawayList[index]);
+              return GiveawayTile(giveaway: filteredList[index]);
             }),
       ],
     );

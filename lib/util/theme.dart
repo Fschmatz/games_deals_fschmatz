@@ -30,7 +30,7 @@ ThemeData light = ThemeData(
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       showSelectedLabels: false,
       showUnselectedLabels: true,
-      backgroundColor: Color(0xFFE9E8E9),
+      backgroundColor: Color(0xFFEDECEE),
     ),
     inputDecorationTheme: InputDecorationTheme(
         fillColor: const Color(0xFFF4F3F4),
@@ -53,14 +53,14 @@ ThemeData light = ThemeData(
               color: Colors.transparent,
             ),
             borderRadius: BorderRadius.circular(12.0))),
-    bottomAppBarColor: const Color(0xFFE9E8E9),
+    bottomAppBarColor: const Color(0xFFEDECEE),
     popupMenuTheme: const PopupMenuThemeData(
       color: Color(0xFFE9EAE9),
     ),
     bottomSheetTheme:
         const BottomSheetThemeData(modalBackgroundColor: Color(0xFFF3F4F3)),
     navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: const Color(0xFFE9E8E9),
+        backgroundColor: const Color(0xFFEDECEE),
         indicatorColor: Colors.purple.shade300,
         iconTheme: MaterialStateProperty.all(const IconThemeData(
           color: Color(0xFF050505),
@@ -102,10 +102,10 @@ ThemeData dark = ThemeData(
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       showSelectedLabels: true,
       showUnselectedLabels: true,
-      backgroundColor: Color(0xFF292A2F),
+      backgroundColor: Color(0xFF28292D),
     ),
     inputDecorationTheme: InputDecorationTheme(
-        fillColor: const Color(0xFF292A2F),
+        fillColor: const Color(0xFF28292D),
         focusColor: const Color(0xFFEFADFC),
         contentPadding:
             const EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),
@@ -125,11 +125,11 @@ ThemeData dark = ThemeData(
               color: Colors.transparent,
             ),
             borderRadius: BorderRadius.circular(12.0))),
-    bottomAppBarColor: const Color(0xFF292A2F),
+    bottomAppBarColor: const Color(0xFF28292D),
     bottomSheetTheme:
         const BottomSheetThemeData(modalBackgroundColor: Color(0xFF202124)),
     navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: const Color(0xFF292A2F),
+        backgroundColor: const Color(0xFF28292D),
         indicatorColor: const Color(0xFFC298CE),
         iconTheme: MaterialStateProperty.all(const IconThemeData(
           color: Color(0xFFEAEAEA),

@@ -1,11 +1,11 @@
 class AppDetails{
 
-  static String appVersion = "1.6.1";
+  static String appVersion = "1.6.2";
   static String appName = "Games Deals Fschmatz";
   static String repositoryLink = "https://github.com/Fschmatz/games_deals_fschmatz";
 
   static String changelogCurrent = '''
-1.6.1
+1.6.2
 - Added System Theme
 - Hold to Share
 - UI Changes
