@@ -46,49 +46,41 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       body: SafeArea(child: _storesList[_currentIndex]),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: NavigationBar(
-            labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-            selectedIndex: _currentIndex,
-            onDestinationSelected: (index) {
-              setState(() {
-                _currentIndex = index;
-              });
-            },
-            destinations: const [
-              NavigationDestination(
-                icon: Icon(Icons.local_offer_rounded),
-                selectedIcon: Icon(Icons.local_offer_rounded,color: Colors.black87,),
-                label: 'Giveaway',
-              ),
-              NavigationDestination(
-                icon: Icon(StoreIcons.epic),
-                selectedIcon: Icon(StoreIcons.epic,color: Colors.black87,),
-                label: 'Epic',
-              ),
-              NavigationDestination(
-                icon: Icon(StoreIcons.origin),
-                selectedIcon: Icon(StoreIcons.origin,color: Colors.black87,),
-                label: 'Origin',
-              ),
-              NavigationDestination(
-                icon: Icon(StoreIcons.steam),
-                selectedIcon: Icon(StoreIcons.steam,color: Colors.black87,),
-                label: 'Steam',
-              ),
-              NavigationDestination(
-                icon: Icon(StoreIcons.gogv3,size: 23,),
-                selectedIcon: Icon(StoreIcons.gogv3,color: Colors.black87,),
-                label: 'GOG',
-              ),
-            ],
+      bottomNavigationBar: NavigationBar(
+        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+        selectedIndex: _currentIndex,
+        onDestinationSelected: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.local_offer_rounded),
+            selectedIcon: Icon(Icons.local_offer_rounded),
+            label: 'Giveaway',
           ),
-        ),
+          NavigationDestination(
+            icon: Icon(StoreIcons.epic),
+            selectedIcon: Icon(StoreIcons.epic),
+            label: 'Epic',
+          ),
+          NavigationDestination(
+            icon: Icon(StoreIcons.origin),
+            selectedIcon: Icon(StoreIcons.origin),
+            label: 'Origin',
+          ),
+          NavigationDestination(
+            icon: Icon(StoreIcons.steam),
+            selectedIcon: Icon(StoreIcons.steam),
+            label: 'Steam',
+          ),
+          NavigationDestination(
+            icon: Icon(StoreIcons.gogv3,size: 23,),
+            selectedIcon: Icon(StoreIcons.gogv3,),
+            label: 'GOG',
+          ),
+        ],
       ),
     );
   }

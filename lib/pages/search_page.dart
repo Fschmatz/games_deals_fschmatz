@@ -90,9 +90,7 @@ class _SearchPageState extends State<SearchPage> {
                 children: [
                   _loadingSearch
                       ? const SizedBox.shrink()
-                      : ListView.separated(
-                          //physics: AlwaysScrollableScrollPhysics(),
-                          physics: const NeverScrollableScrollPhysics(),
+                      : ListView.separated(physics: const NeverScrollableScrollPhysics(),
                           separatorBuilder: (context, index) => const Divider(
                                 height: 0,
                               ),

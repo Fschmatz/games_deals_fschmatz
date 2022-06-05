@@ -15,8 +15,10 @@ class AppInfoPage extends StatelessWidget {
       'are using the CheapShark API.';*/
 
   _launchGithub() {
-    String url = AppDetails.repositoryLink;
-    launch(url);
+    launchUrl(
+      Uri.parse(AppDetails.repositoryLink),
+      mode: LaunchMode.externalApplication,
+    );
   }
 
   @override

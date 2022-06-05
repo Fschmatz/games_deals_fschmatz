@@ -14,21 +14,25 @@ class GiveawayTile extends StatefulWidget {
 }
 
 class _GiveawayTileState extends State<GiveawayTile> {
-  _launchlink() {
+
+  _launchLink() {
     var url = widget.giveaway.giveawayUrl;
-    launch(url);
+    launchUrl(
+      Uri.parse(url),
+      mode: LaunchMode.externalApplication,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        _launchlink();
+        _launchLink();
       },
       onLongPress: () {
         Share.share(widget.giveaway.giveawayUrl);
       },
-      contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+      contentPadding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       title: Text(widget.giveaway.title),
     );
   }

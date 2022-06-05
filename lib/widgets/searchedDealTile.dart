@@ -23,9 +23,12 @@ class _SearchedDealTileState extends State<SearchedDealTile> {
     super.initState();
   }
 
-  _launchlink() {
+  _launchLink() {
     var url = urlOpenLinks + widget.searchedGameDeal.dealID;
-    launch(url);
+    launchUrl(
+      Uri.parse(url),
+      mode: LaunchMode.externalApplication,
+    );
   }
 
   @override
@@ -37,12 +40,12 @@ class _SearchedDealTileState extends State<SearchedDealTile> {
 
     return ListTile(
       onTap: () {
-        _launchlink();
+        _launchLink();
       },
       onLongPress: () {
         Share.share(urlOpenLinks + widget.searchedGameDeal.dealID);
       },
-      contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+      contentPadding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       title: Text(widget.searchedGameDeal.title),
       trailing: widget.searchedGameDeal.salePrice.toString() == '0.00'
           ? Text(

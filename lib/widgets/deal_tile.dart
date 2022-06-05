@@ -16,9 +16,12 @@ class DealTile extends StatefulWidget {
 class _DealTileState extends State<DealTile> {
   String urlOpenLinks = 'https://www.cheapshark.com/redirect?dealID=';
 
-  _launchlink() {
+  _launchLink() {
     var url = urlOpenLinks + widget.gameDeal.dealID;
-    launch(url);
+    launchUrl(
+      Uri.parse(url),
+      mode: LaunchMode.externalApplication,
+    );
   }
 
   @override
@@ -36,12 +39,12 @@ class _DealTileState extends State<DealTile> {
 
     return ListTile(
       onTap: () {
-        _launchlink();
+        _launchLink();
       },
       onLongPress: () {
         Share.share(urlOpenLinks + widget.gameDeal.dealID);
       },
-      contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+      contentPadding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       title: Row(
         children: [
           Visibility(

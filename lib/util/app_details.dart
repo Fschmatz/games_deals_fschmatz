@@ -1,56 +1,57 @@
 class AppDetails{
 
-  static String appVersion = "1.6.2";
+  static String appVersion = "1.6.3";
   static String appName = "Games Deals Fschmatz";
   static String repositoryLink = "https://github.com/Fschmatz/games_deals_fschmatz";
 
   static String changelogCurrent = '''
-1.6.2
-- Added System Theme
-- Hold to Share
-- UI Changes
-- Bug Fixes
+1.6.3
+- Added system theme
+- Hold to share
+- UI changes
+- Bug fixes
+- Flutter 3
 ''';
 
   static String changelogsOld = ''' 
 1.5.1
 - New NavBar
-- Bug Fixes
+- Bug fixes
 - Hide AppBar
 
 1.4.2
-- Swipe Down to Refresh
-- Animated Switcher
+- Swipe down to refresh
+- Animated switcher
 - Lints
 
 1.3.0
-- Added Giveaway Page
-- UI Changes
-- Share Giveaway
-- Various Fixes
+- Added giveaway page
+- UI changes
+- Share giveaway
+- Various fixes
 
 1.2.0
-- Added Search Page
-- Home Changes
+- Added search page
+- Home changes
 
 1.1.2
-- Open Store Links using CheapShark Links as asked on the API Docs
-- UI Changes
-- Small Fix
+- Open store links using CheapShark links as asked on the API docs
+- UI changes
+- Small fix
 
 1.0.0
-- Technically Usable
+- Technically usable
 
 0.3.0
 - Pages
 - NavBar
 
 0.2.0
-- Cheap Shark API Working
+- Cheap Shark API working
 - Home
 
 0.1.0
-- Project Start
+- Project start
 ''';
 
 }
