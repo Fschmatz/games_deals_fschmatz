@@ -20,7 +20,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
 
     final Color bottomOverlayColor =
-    Theme.of(context).bottomNavigationBarTheme.backgroundColor!;
+    Theme.of(context).navigationBarTheme.backgroundColor!;
     final Color topOverlayColor =
     Theme.of(context).appBarTheme.backgroundColor!;
     final Brightness iconBrightness =
@@ -36,7 +36,7 @@ class _AppState extends State<App> {
           systemStatusBarContrastEnforced: false,
           systemNavigationBarIconBrightness: iconBrightness,
         ),
-        child: const SafeArea(child: Home())
+        child: Home()
     );
   }
 }

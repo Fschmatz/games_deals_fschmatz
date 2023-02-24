@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       body: SafeArea(child: _storesList[_currentIndex]),
-      bottomNavigationBar: NavigationBar(
+    /*  bottomNavigationBar: NavigationBar(
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         selectedIndex: _currentIndex,
         onDestinationSelected: (index) {
@@ -81,7 +81,7 @@ class _HomeState extends State<Home> {
             label: 'GOG',
           ),
         ],
-      ),
+      ),*/
     );
   }
 }

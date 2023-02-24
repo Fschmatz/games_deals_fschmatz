@@ -18,20 +18,17 @@ class _AppBarSliverState extends State<AppBarSliver> {
         floating: true,
         snap: true,
         actions: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
-            child: IconButton(
-                icon: const Icon(
-                  Icons.search_outlined,
-                ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => const SearchPage(),
-                      ));
-                }),
-          ),
+         /* IconButton(
+              icon: const Icon(
+                Icons.search_outlined,
+              ),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const SearchPage(),
+                    ));
+              }),*/
           IconButton(
               icon: const Icon(
                 Icons.settings_outlined,

@@ -14,7 +14,6 @@ class GiveawayTile extends StatefulWidget {
 }
 
 class _GiveawayTileState extends State<GiveawayTile> {
-
   _launchLink() {
     var url = widget.giveaway.giveawayUrl;
     launchUrl(
@@ -25,15 +24,24 @@ class _GiveawayTileState extends State<GiveawayTile> {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: () {
-        _launchLink();
-      },
-      onLongPress: () {
-        Share.share(widget.giveaway.giveawayUrl);
-      },
-      contentPadding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
-      title: Text(widget.giveaway.title),
+    return Card(
+      margin: const EdgeInsets.fromLTRB(16, 5, 16, 5),
+      child: ListTile(
+        onTap: () {
+          _launchLink();
+        },
+        onLongPress: () {
+          Share.share(widget.giveaway.giveawayUrl);
+        },
+        contentPadding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+        title: Text(
+          widget.giveaway.title,
+        ),
+        subtitle: widget.giveaway.endDate.isEmpty || widget.giveaway.endDate == "N/A"
+          ? Text("From ${widget.giveaway.getFormattedPublishedDate()}", style: TextStyle(fontSize: 12, color: Theme.of(context).hintColor),)
+          : Text("From ${widget.giveaway.getFormattedPublishedDate()} to ${widget.giveaway.getFormattedEndDate()}" ,
+          style: TextStyle(fontSize: 12, color: Theme.of(context).hintColor),),
+      ),
     );
   }
 }

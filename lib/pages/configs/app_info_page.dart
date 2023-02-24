@@ -5,9 +5,11 @@ import 'package:url_launcher/url_launcher.dart';
 class AppInfoPage extends StatelessWidget {
   AppInfoPage({Key? key}) : super(key: key);
 
-  String apologiesText = "Prices from CheapShark API\nGiveaways from GamerPower API";
+  String apologiesText = "Giveaways from GamerPower API";
 
-    /*  'All values are in dollars, '
+  /*
+     Prices from CheapShark API\n
+     'All values are in dollars, '
       'but the CheapShark API is free and can be used at least to track promotions.\n'
       'For Brazil, the percentage of the discount will always be the same, but as there are changes in prices that are practiced around the world, '
       'the final value cannot be directly converted using the dollar value.\n'
@@ -75,7 +77,9 @@ class AppInfoPage extends StatelessWidget {
             leading: const Icon(Icons.open_in_new_outlined),
             title: const Text("View on GitHub",
                 style: TextStyle(
-                    decoration: TextDecoration.underline, color: Colors.blue)),
+                    decoration: TextDecoration.underline,
+                    decorationColor: Colors.blue,
+                    color: Colors.blue)),
           ),
           ListTile(
             title: Text("Quote",

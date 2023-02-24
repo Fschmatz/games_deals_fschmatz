@@ -1,13 +1,10 @@
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:games_deals_fschmatz/util/theme.dart';
-import 'package:provider/provider.dart';
-
 import 'app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
 
   runApp(
     EasyDynamicThemeWidget(

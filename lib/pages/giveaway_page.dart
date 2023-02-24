@@ -5,6 +5,7 @@ import 'package:games_deals_fschmatz/widgets/app_bar_sliver.dart';
 import 'package:games_deals_fschmatz/widgets/giveaway_tile.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:jiffy/jiffy.dart';
 
 class GiveawayPage extends StatefulWidget {
   const GiveawayPage({required Key key}) : super(key: key);
@@ -23,6 +24,7 @@ class _GiveawayPageState extends State<GiveawayPage> {
   List<Giveaway> originList = [];
   List<Giveaway> steamList = [];
   List<Giveaway> gogList = [];
+  DateTime today = DateTime.now();
 
   @override
   void initState() {
@@ -36,23 +38,38 @@ class _GiveawayPageState extends State<GiveawayPage> {
   }
 
   Future<void> filterLists() async {
-    epicList = giveawayList.where((o) => o.platforms.contains('Epic')).toList();
+    epicList = giveawayList
+        .where((g) =>
+            g.platforms.contains('Epic') &&
+                checkPublishedDateLessThanSixMonths(g))
+        .toList();
 
-    originList =
-        giveawayList.where((o) => o.platforms.contains('Origin')).toList();
+    originList = giveawayList
+        .where((g) =>
+            g.platforms.contains('Origin') &&
+                checkPublishedDateLessThanSixMonths(g))
+        .toList();
 
-    steamList =
-        giveawayList.where((o) => o.platforms.contains('Steam')).toList();
+    steamList = giveawayList
+        .where((g) =>
+            g.platforms.contains('Steam') &&
+                checkPublishedDateLessThanSixMonths(g))
+        .toList();
 
-    gogList = giveawayList.where((o) => o.platforms.contains('GOG')).toList();
+    gogList = giveawayList
+        .where((g) =>
+            g.platforms.contains('GOG') &&
+                checkPublishedDateLessThanSixMonths(g))
+        .toList();
 
     setState(() {
-      epicList;
-      originList;
-      steamList;
-      gogList;
       loading = false;
     });
+  }
+
+  bool checkPublishedDateLessThanSixMonths(Giveaway giveaway) {
+    return (Jiffy(giveaway.publishedDate).dateTime
+        .isAfter(Jiffy(today).subtract(months: 6).dateTime));
   }
 
   Future<void> loadJsonData() async {
@@ -65,8 +82,8 @@ class _GiveawayPageState extends State<GiveawayPage> {
     }
   }
 
-  Widget separatedList(List<Giveaway> filteredList, String storeName, IconData storeIcon,
-      BuildContext context) {
+  Widget separatedList(List<Giveaway> filteredList, String storeName,
+      IconData storeIcon, BuildContext context) {
     TextStyle titleStyle = TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w400,
@@ -75,7 +92,8 @@ class _GiveawayPageState extends State<GiveawayPage> {
     return Column(
       children: [
         ListTile(
-          leading: Icon(storeIcon, color: Theme.of(context).colorScheme.primary),
+          leading:
+              Icon(storeIcon, color: Theme.of(context).colorScheme.primary),
           title: Text(
             storeName,
             style: titleStyle,
