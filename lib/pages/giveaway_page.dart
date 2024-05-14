@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:games_deals_fschmatz/classes/giveaway.dart';
 import 'package:games_deals_fschmatz/util/store_icons.dart';
-import 'package:games_deals_fschmatz/widgets/app_bar_sliver.dart';
 import 'package:games_deals_fschmatz/widgets/giveaway_tile.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
+import 'configs/settings_page.dart';
 
 class GiveawayPage extends StatefulWidget {
   const GiveawayPage({required Key key}) : super(key: key);
@@ -28,8 +28,9 @@ class _GiveawayPageState extends State<GiveawayPage> {
 
   @override
   void initState() {
-    giveawayFunctions();
     super.initState();
+
+    giveawayFunctions();
   }
 
   Future<void> giveawayFunctions() async {
@@ -69,7 +70,7 @@ class _GiveawayPageState extends State<GiveawayPage> {
 
   bool checkPublishedDateLessThanSixMonths(Giveaway giveaway) {
     return (Jiffy(giveaway.publishedDate).dateTime
-        .isAfter(Jiffy(today).subtract(months: 6).dateTime));
+        .isAfter(Jiffy(today).subtract(months: 3).dateTime));
   }
 
   Future<void> loadJsonData() async {
@@ -113,10 +114,22 @@ class _GiveawayPageState extends State<GiveawayPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: NestedScrollView(
-      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-        return <Widget>[const AppBarSliver()];
-      },
+      appBar: AppBar(
+        title: const Text('Games Deals'),
+        actions: [
+          IconButton(
+              icon: const Icon(
+                Icons.settings_outlined,
+              ),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const SettingsPage(),
+                    ));
+              }),
+        ],
+      ),
       body: RefreshIndicator(
         onRefresh: giveawayFunctions,
         color: Theme.of(context).colorScheme.primary,
@@ -155,6 +168,6 @@ class _GiveawayPageState extends State<GiveawayPage> {
                     ]),
         ),
       ),
-    ));
+    );
   }
 }

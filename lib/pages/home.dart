@@ -45,7 +45,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: SafeArea(child: _storesList[_currentIndex]),
+      body: _storesList[_currentIndex],
     /*  bottomNavigationBar: NavigationBar(
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         selectedIndex: _currentIndex,

@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'package:games_deals_fschmatz/widgets/app_bar_sliver.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:games_deals_fschmatz/classes/game_deal.dart';
 import '../widgets/deal_tile.dart';
+import 'configs/settings_page.dart';
 
 class DealsListPage extends StatefulWidget {
   int currentStore;
@@ -46,10 +46,22 @@ class _DealsListPageState extends State<DealsListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: NestedScrollView(
-      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-        return <Widget>[const AppBarSliver()];
-      },
+      appBar: AppBar(
+        title: const Text('Games Deals'),
+        actions: [
+          IconButton(
+              icon: const Icon(
+                Icons.settings_outlined,
+              ),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const SettingsPage(),
+                    ));
+              }),
+        ],
+      ),
       body: RefreshIndicator(
         onRefresh: loadJsonData,
         color: Theme.of(context).colorScheme.primary,
@@ -80,6 +92,6 @@ class _DealsListPageState extends State<DealsListPage> {
                     ]),
         ),
       ),
-    ));
+    );
   }
 }

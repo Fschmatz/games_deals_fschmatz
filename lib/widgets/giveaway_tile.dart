@@ -27,13 +27,14 @@ class _GiveawayTileState extends State<GiveawayTile> {
     return Card(
       margin: const EdgeInsets.fromLTRB(16, 5, 16, 5),
       child: ListTile(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        contentPadding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
         onTap: () {
           _launchLink();
         },
         onLongPress: () {
           Share.share(widget.giveaway.giveawayUrl);
         },
-        contentPadding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
         title: Text(
           widget.giveaway.title,
         ),

@@ -1,19 +1,25 @@
 class AppDetails{
 
-  static String appVersion = "1.7.0";
+  static String appVersion = "1.8.0";
   static String appName = "Games Deals Fschmatz";
   static String repositoryLink = "https://github.com/Fschmatz/games_deals_fschmatz";
 
   static String changelogCurrent = '''
+1.8.0
+- Monet
+- Small fixes
+- Only show giveaways from the last 3 months
+- Flutter 3.19
+''';
+
+  static String changelogsOld = ''' 
 1.7.0
 - UI changes
 - Show published date
 - Show end date when available
 - Only show giveaways from the last 6 months
 - Flutter 3.7
-''';
 
-  static String changelogsOld = ''' 
 1.6.3
 - Added system theme
 - Hold to share
